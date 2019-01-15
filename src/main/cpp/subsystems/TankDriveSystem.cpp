@@ -7,14 +7,11 @@
 
 #include "subsystems/TankDriveSystem.h"
 
-TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {
-}
+TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {}
 
 void TankDriveSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-}
-void SetMotorCommand(double left, double right){
 }
 
 // Put methods for controlling this subsystem
