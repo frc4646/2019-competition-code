@@ -16,3 +16,22 @@ void GrabberSystem::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+void GrabberSystem::OpenHatch(){
+  //opens grabber to hold hatch
+} 
+void GrabberSystem::CloseHatch(){
+  //closes grabber to release hatch
+} 
+void GrabberSystem::OpenCargo(){
+  //opens grabber to release cargo
+} 
+void GrabberSystem::CloseCargo(){
+  //closes grabber to hold cargo
+} 
+void GrabberSystem::TiltDown(){
+
+}
+void GrabberSystem::TiltUp(){
+
+}
