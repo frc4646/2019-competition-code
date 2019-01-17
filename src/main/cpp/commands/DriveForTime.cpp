@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/TeleopDrive.h"
+#include "commands/DriveForTime.h"
 
-TeleopDrive::TeleopDrive() {
+DriveForTime::DriveForTime(double seconds, double speed) {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
 
@@ -15,24 +15,23 @@ TeleopDrive::TeleopDrive() {
 }
 
 // Called just before this Command runs the first time
-void TeleopDrive::Initialize() {
-  // Send motor stop command.
+void DriveForTime::Initialize() {
+  // Set drive speed to speed for seconds seconds.
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TeleopDrive::Execute() {
-  // Set left drive to left joystick.
-  // Set right drive to right joystick.
+void DriveForTime::Execute() {
+  // Don't do anything here since this command simply runs once.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TeleopDrive::IsFinished() { return false; }
+bool DriveForTime::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void TeleopDrive::End() {
+void DriveForTime::End() {
   // Send motor stop command.
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TeleopDrive::Interrupted() {}
+void DriveForTime::Interrupted() {}

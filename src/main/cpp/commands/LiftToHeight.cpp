@@ -5,34 +5,35 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/TeleopDrive.h"
+#include "commands/LiftToHeight.h"
 
-TeleopDrive::TeleopDrive() {
+LiftToHeight::LiftToHeight(double distance) {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
 
-  // Requires the drivetrain subsystem.
+  // Requires the lift subsystem.
 }
 
 // Called just before this Command runs the first time
-void TeleopDrive::Initialize() {
-  // Send motor stop command.
+void LiftToHeight::Initialize() {
+  // Send the lift to height command to the subsystem.
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TeleopDrive::Execute() {
-  // Set left drive to left joystick.
-  // Set right drive to right joystick.
+void LiftToHeight::Execute() {
+  // Don't do anything here since this command simply runs once.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TeleopDrive::IsFinished() { return false; }
+bool LiftToHeight::IsFinished() {
+  // Ask the subsystem whether or not the lift has reached the correct height, then return the bool.
+}
 
 // Called once after isFinished returns true
-void TeleopDrive::End() {
-  // Send motor stop command.
+void LiftToHeight::End() {
+  // Nothing here because the subsytem should handle stopping the mechanism.
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TeleopDrive::Interrupted() {}
+void LiftToHeight::Interrupted() {}
