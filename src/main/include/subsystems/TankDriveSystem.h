@@ -8,7 +8,9 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include "CommandBase.h"
 #include <ctre/Phoenix.h>
+
 
 class TankDriveSystem : public frc::Subsystem {
  private:

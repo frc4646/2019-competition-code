@@ -8,6 +8,7 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include "CommandBase.h"
 
 class PerceptionSystem : public frc::Subsystem {
  private:
