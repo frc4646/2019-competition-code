@@ -5,36 +5,42 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/LiftToHeight.h"
+#include "commands/DriveToXY.h"
 
-LiftToHeight::LiftToHeight(double distance) {
+DriveToXY::DriveToXY(double x, double y, double h) {
+  //pass in 3 doubles, x and y (+x goes to the right, +y goes forward) 
+  //and h (end heading, direction robot faces at end)
+
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-
-  // Requires the lift subsystem; distance is relative to the ground, in inches.
-  
+  //Requires drivetrain
 }
 
 // Called just before this Command runs the first time
-void LiftToHeight::Initialize() {
-  //Commanding lift subsystem on at a certain power
+void DriveToXY::Initialize() {
+  
 }
 
 // Called repeatedly when this Command is scheduled to run
-void LiftToHeight::Execute() {
-  // Don't do anything here since we are using a constant power
+void DriveToXY::Execute() {
+  /* Can only turn between -90 and 90 degrees
+    1. rotate so robot points at given point
+      theta = arctan(x/y)
+    2. drive to point
+      distance = sqrt(x^2 + y^2)
+    3. rotate to end heading
+      angle = 90 + theta
+    */
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool LiftToHeight::IsFinished() {
-  // Ask the subsystem whether or not the lift has reached the correct height, then return the bool.
+bool DriveToXY::IsFinished() { 
+  return false; 
 }
 
 // Called once after isFinished returns true
-void LiftToHeight::End() {
-  // Command lift subsystem to hold at that height
-}
+void DriveToXY::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void LiftToHeight::Interrupted() {}
+void DriveToXY::Interrupted() {}
