@@ -12,11 +12,12 @@ DriveForTime::DriveForTime(double seconds, double speed) {
   // eg. Requires(Robot::chassis.get());
 
   // Requires the drivetrain subsystem.
+  // Speed is -1 to +1
 }
 
 // Called just before this Command runs the first time
 void DriveForTime::Initialize() {
-  // Set drive speed to speed for seconds seconds.
+  // Set drive speed to speed
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -25,7 +26,9 @@ void DriveForTime::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveForTime::IsFinished() { return false; }
+bool DriveForTime::IsFinished() {
+  // Wait for a certain amount of time while returning false and then return true
+}
 
 // Called once after isFinished returns true
 void DriveForTime::End() {
