@@ -8,14 +8,14 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/Spark.h>
 #include "CommandBase.h"
+#include <frc/Spark.h>
 
 class GrabberSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem 
-  //frc::Spark tiltMotor;
+  frc::Spark * tiltMotor;
   //linear actuator
 
  public:

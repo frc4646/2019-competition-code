@@ -6,5 +6,4 @@
 /*----------------------------------------------------------------------------*/
 
 #include "CommandBase.h"
-#include <frc/WPILib.h>
 CommandBase::CommandBase() {}

@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-
+#include <frc/WPILib.h>
 class CommandBase {
  public:
   CommandBase();
