@@ -8,13 +8,19 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <ctre/Phoenix.h>
 
 class TankDriveSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+  WPI_TalonSRX * frontLeft;
+  WPI_TalonSRX * frontRight;
+  WPI_VictorSPX * backLeft;
+  WPI_VictorSPX * backRight;
 
  public:
   TankDriveSystem();
   void InitDefaultCommand() override;
+  void SetDriveSpeed(double left, double right);
 };

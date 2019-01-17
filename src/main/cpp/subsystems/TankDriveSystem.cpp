@@ -7,11 +7,26 @@
 
 #include "subsystems/TankDriveSystem.h"
 
-TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {}
+TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {
+  frontLeft = new WPI_TalonSRX(0);
+  frontRight = new WPI_TalonSRX(1);
+  backLeft = new WPI_VictorSPX(2);
+  backRight = new WPI_VictorSPX(3);
+  
+  frontRight->SetInverted(true);
+  backRight->SetInverted(true);
+}
 
 void TankDriveSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+}
+void TankDriveSystem::SetDriveSpeed(double left, double right){
+  frontLeft->Set(left);
+  frontRight->Set(right);
+  backLeft->Set(left);
+  backRight->Set(right);
+
 }
 
 // Put methods for controlling this subsystem
