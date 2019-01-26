@@ -9,6 +9,21 @@
 
 #include <frc/WPILib.h>
 
-OI::OI() {
+using namespace frc;
+using namespace wpi;
+
+OI::OI() :
   // Process operator interface input here.
+  leftJoystick(0),
+  rightJoystick(1)
+{}
+
+double OI::GetLeftJoystickY()
+{
+  return leftJoystick.GetRawAxis(1);
+}
+
+double OI::GetRightJoystickY()
+{
+  return rightJoystick.GetRawAxis(1);
 }

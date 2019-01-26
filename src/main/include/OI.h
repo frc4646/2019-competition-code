@@ -7,7 +7,18 @@
 
 #pragma once
 
+#include <frc/WPILib.h>
+
+using namespace frc;
+using namespace wpi;
+
 class OI {
- public:
+public:
   OI();
+  double GetLeftJoystickY();
+  double GetRightJoystickY();
+
+private:
+    Joystick leftJoystick;
+    Joystick rightJoystick;
 };
