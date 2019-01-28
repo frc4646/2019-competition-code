@@ -5,12 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DriveTrain_H
+#define DriveTrain_H
 
 #include <frc/commands/Subsystem.h>
-#include "CommandBase.h"
+#include <frc/WPILib.h>
 #include <ctre/Phoenix.h>
 
+using namespace frc;
 
 class TankDriveSystem : public frc::Subsystem {
  private:
@@ -24,5 +26,7 @@ class TankDriveSystem : public frc::Subsystem {
  public:
   TankDriveSystem();
   void InitDefaultCommand() override;
-  void SetDriveSpeed(double left, double right);
+  void SetDriveSpeed(double leftSpeed, double rightSpeed);
 };
+
+#endif

@@ -6,8 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/TankDriveSystem.h"
+#include <RobotMap.h>
+#include <commands/TeleOpDrive.h>
 
-TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {
+using namespace frc;
+
+TankDriveSystem::TankDriveSystem() : Subsystem("drivetrain") {
   frontLeft = new WPI_TalonSRX(0);
   frontRight = new WPI_TalonSRX(1);
   backLeft = new WPI_VictorSPX(2);
@@ -20,12 +24,13 @@ TankDriveSystem::TankDriveSystem() : Subsystem("TankDriveSystem") {
 void TankDriveSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new TeleopDrive());
 }
-void TankDriveSystem::SetDriveSpeed(double left, double right){
-  frontLeft->Set(left);
-  frontRight->Set(right);
-  backLeft->Set(left);
-  backRight->Set(right);
+void TankDriveSystem::SetDriveSpeed(double leftSpeed, double rightSpeed){
+  frontLeft->Set(leftSpeed);
+  frontRight->Set(rightSpeed);
+  backLeft->Set(leftSpeed);
+  backRight->Set(rightSpeed);
 
 }
 

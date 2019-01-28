@@ -5,11 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DriveCommandTeleop_H
+#define DriveCommandTeleop_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
+#include <frc/WPILib.h>
+#include <frc/Spark.h>
 
-class TeleopDrive : public frc::Command {
+using namespace frc;
+using namespace wpi;
+
+class TeleopDrive : public CommandBase {
  public:
   TeleopDrive();
   void Initialize() override;
@@ -18,3 +24,5 @@ class TeleopDrive : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+
+#endif
