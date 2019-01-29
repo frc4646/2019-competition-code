@@ -35,6 +35,7 @@ void LiftToHeight::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftToHeight::Execute() {
   // Don't do anything here since we are using a constant power
+  // If overshoot becomes an issue, maybe make a basic P loop here?
 
 }
 
@@ -54,7 +55,7 @@ bool LiftToHeight::IsFinished() {
 // Called once after isFinished returns true
 void LiftToHeight::End() {
   // Command lift subsystem to hold at that height
-  //lift->HoldHeight();
+  lift->HoldHeight();
 }
 
 // Called when another command which requires one or more of the same

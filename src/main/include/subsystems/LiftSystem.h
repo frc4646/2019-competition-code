@@ -19,4 +19,5 @@ class LiftSystem : public frc::Subsystem {
   void InitDefaultCommand() override;
   void LiftAtSpeed(double speed);
   double GetHeight();
+  void HoldHeight();
 };

@@ -20,6 +20,9 @@ void LiftSystem::LiftAtSpeed(double speed){
 double LiftSystem::GetHeight(){
   //stringpot->GetUrHeightYouStupidStringpot; //do mathessss
 }
+void LiftSystem::HoldHeight(){
+  //liftMotor->Hold(speed);
+}
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
