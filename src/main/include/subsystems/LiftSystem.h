@@ -8,7 +8,6 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include "CommandBase.h"
 
 class LiftSystem : public frc::Subsystem {
  private:
@@ -18,4 +17,6 @@ class LiftSystem : public frc::Subsystem {
  public:
   LiftSystem();
   void InitDefaultCommand() override;
+  void LiftAtSpeed(double speed);
+  double GetHeight();
 };

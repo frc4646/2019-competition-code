@@ -8,9 +8,16 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class LiftToHeight : public frc::Command {
- public:
+using namespace frc;
+using namespace wpi;
+
+class LiftToHeight : public CommandBase {
+  private:
+  double dist;
+  bool higher;
+  public:
   LiftToHeight(double distance);
   void Initialize() override;
   void Execute() override;

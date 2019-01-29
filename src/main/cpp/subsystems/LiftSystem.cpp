@@ -14,5 +14,12 @@ void LiftSystem::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void LiftSystem::LiftAtSpeed(double speed){
+  //liftMotor->Set(speed);
+}
+double LiftSystem::GetHeight(){
+  //stringpot->GetUrHeightYouStupidStringpot; //do mathessss
+}
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
