@@ -18,6 +18,7 @@ using namespace frc;
 #include "OI.h"
 
 #include <subsystems/TankDriveSystem.h>
+#include <subsystems/LiftSystem.h>
 #include <subsystems/TiltSystem.h>
 
 /**
@@ -35,6 +36,7 @@ public:
 
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<TankDriveSystem> drivetrain;
+	static std::unique_ptr<LiftSystem> lift;
 	static std::unique_ptr<TiltSystem> tilt;
 	static std::unique_ptr<OI> oi;
 
