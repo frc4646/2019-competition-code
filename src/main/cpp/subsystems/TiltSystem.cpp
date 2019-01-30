@@ -11,7 +11,22 @@ TiltSystem::TiltSystem() : Subsystem("TiltSystem") {}
 
 void TiltSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+}
+
+double TiltSystem::getTolerance() {
+  return tolerance;
+}
+
+double TiltSystem::getAngle() {
+  return 0;
+}
+
+void TiltSystem::off() {
+  
+}
+
+void TiltSystem::Tilt(int direction) {
+  
 }
 
 // Put methods for controlling this subsystem
