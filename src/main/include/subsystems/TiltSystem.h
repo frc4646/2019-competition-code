@@ -8,14 +8,18 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include "CommandBase.h"
 
 class TiltSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+  double tolerance = 0;
 
  public:
   TiltSystem();
+  double getTolerance();
+  double getAngle();
+  void Tilt(int direction); //tilt grabber in given direction
+  void off(); //stops tilting
   void InitDefaultCommand() override;
 };

@@ -13,11 +13,13 @@
 #include <string>
 
 #include <frc/Commands/Command.h>
+using namespace frc;
 
 #include "OI.h"
 
 #include <subsystems/TankDriveSystem.h>
 #include <subsystems/LiftSystem.h>
+#include <subsystems/TiltSystem.h>
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -35,6 +37,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<TankDriveSystem> drivetrain;
 	static std::unique_ptr<LiftSystem> lift;
+	static std::unique_ptr<TiltSystem> tilt;
 	static std::unique_ptr<OI> oi;
 
 };

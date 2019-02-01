@@ -8,8 +8,9 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class GrabberTiltDown : public frc::Command {
+class GrabberTiltDown : public CommandBase {
  public:
   GrabberTiltDown();
   void Initialize() override;
@@ -17,4 +18,8 @@ class GrabberTiltDown : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+
+private:
+  double target = 0;
+  int direction = 0; //either 1 or -1
 };

@@ -7,10 +7,10 @@
 
 #include "commands/GrabberTiltDown.h"
 
-GrabberTiltDown::GrabberTiltDown() {
+GrabberTiltDown::GrabberTiltDown() : CommandBase("GrabberTiltDown") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires tilt subsystem.
+  Requires(tilt.get());
   //Assumes popper is not extended.
 }
 
@@ -19,24 +19,30 @@ void GrabberTiltDown::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void GrabberTiltDown::Execute() {
-  //Time Based: (Better for Tele-Op)
-    //Tilt down at inputed power.
-    //Sleep for a certain amount of milliseconds.
-    //Stop tilting down.
-
   //Position Based: (Better for Autonomous)
-    //Set target position to inputed position.
-    //Check position of tilt subsystem.
-    //If tilt position is not at target position, stop. Else:
-    //Set tilt position to inputed position.
+  tilt->Tilt(direction);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool GrabberTiltDown::IsFinished() { return false; }
+bool GrabberTiltDown::IsFinished() { 
+  //finished when current angle equals target angle
+  if(tilt->getAngle() <= (target + tilt->getTolerance())){
+    return true;
+  }
+  else {
+    return false; 
+  }
+    
+}
 
 // Called once after isFinished returns true
-void GrabberTiltDown::End() {}
+void GrabberTiltDown::End() {
+  tilt->off();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void GrabberTiltDown::Interrupted() {}
+void GrabberTiltDown::Interrupted() {
+  End();
+}
