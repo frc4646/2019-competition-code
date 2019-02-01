@@ -8,6 +8,7 @@
 #include "commands/StoreIntake.h"
 
 StoreIntake::StoreIntake() {
+  // Store intake same as intake intake
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   // Requires Intake Subsystem
