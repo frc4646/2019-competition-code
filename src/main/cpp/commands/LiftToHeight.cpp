@@ -22,11 +22,11 @@ void LiftToHeight::Initialize() {
   
   if (lift->GetHeight()>dist){
     lift->LiftAtSpeed(-0.2);
-    bool higher = true;
+    bool isLiftHigher = true;
   }
   else{
     lift->LiftAtSpeed(0.5);
-    bool higher = false;
+    bool isLiftHigher = false;
   }
   
 
@@ -43,7 +43,7 @@ void LiftToHeight::Execute() {
 bool LiftToHeight::IsFinished() {
   // Ask the subsystem whether or not the lift has reached the correct height, then return the bool.
   
-  if (higher){
+  if (isLiftHigher){
     return lift->GetHeight()<=dist;
   }
   else{

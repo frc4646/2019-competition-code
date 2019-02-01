@@ -16,7 +16,7 @@ using namespace wpi;
 class LiftToHeight : public CommandBase {
   private:
   double dist;
-  bool higher;
+  bool isLiftHigher;
   public:
   LiftToHeight(double distance);
   void Initialize() override;
