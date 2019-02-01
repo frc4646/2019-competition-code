@@ -8,8 +8,12 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class ObtainCargo : public frc::Command {
+using namespace frc;
+using namespace wpi;
+
+class ObtainCargo : public CommandBase {
  public:
   ObtainCargo();
   void Initialize() override;

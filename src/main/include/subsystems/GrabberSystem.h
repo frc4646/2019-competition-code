@@ -8,7 +8,6 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include "CommandBase.h"
 #include <frc/Spark.h>
 
 class GrabberSystem : public frc::Subsystem {

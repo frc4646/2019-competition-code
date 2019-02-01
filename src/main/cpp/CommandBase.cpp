@@ -34,9 +34,12 @@
 
 #include "CommandBase.h"
 #include <frc/Commands/Scheduler.h>
+/*
 #include <subsystems/TankDriveSystem.h>
 #include <subsystems/LiftSystem.h>
 #include "subsystems/TiltSystem.h"
+#include "subsystems/GrabberSystem.h"
+*/
 
 
 // Initialize a single static instance of all of your subsystems. The following
@@ -45,6 +48,7 @@
 std::unique_ptr<TankDriveSystem> CommandBase::drivetrain = NULL; //std::make_unique<TankDriveSystem>();
 std::unique_ptr<LiftSystem> CommandBase::lift = NULL;
 std::unique_ptr<TiltSystem> CommandBase::tilt = NULL;
+std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
 CommandBase::CommandBase(const std::string &name) :
@@ -56,4 +60,5 @@ void CommandBase::init() {
 	drivetrain.reset(new TankDriveSystem());
   lift.reset(new LiftSystem());
   tilt.reset(new TiltSystem());
+  grab.reset(new GrabberSystem());
 }
