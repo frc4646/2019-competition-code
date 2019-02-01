@@ -7,10 +7,17 @@
 
 #pragma once
 
-#include <frc/commands/Command.h>
+#include <frc/WPILib.h>
+#include <CommandBase.h>
 
-class DriveForTime : public frc::Command {
- public:
+using namespace frc;
+using namespace wpi;
+
+class DriveForTime : public CommandBase {
+  private:
+  double sec;
+  double sped;
+  public:
   DriveForTime(double seconds, double speed);
   void Initialize() override;
   void Execute() override;

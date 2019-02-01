@@ -10,7 +10,6 @@
 
 #include <CommandBase.h>
 #include <frc/WPILib.h>
-#include <frc/Spark.h>
 
 using namespace frc;
 using namespace wpi;
