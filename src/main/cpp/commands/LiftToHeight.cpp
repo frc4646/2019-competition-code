@@ -35,6 +35,7 @@ void LiftToHeight::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftToHeight::Execute() {
   // Don't do anything here since we are using a constant power
+  // If overshoot becomes an issue, maybe make a basic P loop here?
 
 }
 
