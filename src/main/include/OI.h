@@ -24,7 +24,8 @@ public:
   bool GetMechJoystickButton10(); //For outake intake
   bool GetMechJoystickButton11(); //For intake cylinder and grabber up.
   bool GetMechJoystickButton12(); //For intake cylinder and grabber down.
-  double GetMechJoystickThrottle(); //Not being used (for now)
+  double GetMechJoystickThrottle(); //For the lift.
+  bool GetMechJoystickButton1(); //For the lift.
 
 private:
     Joystick leftJoystick;
