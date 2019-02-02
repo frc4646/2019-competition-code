@@ -13,8 +13,7 @@
 class GrabberSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
-  // for methods that implement subsystem 
-  frc::Spark * tiltMotor;
+  // for methods that implement subsystem
   //linear actuator
 
  public:
@@ -24,6 +23,4 @@ class GrabberSystem : public frc::Subsystem {
   void CloseHatch(); //closes grabber to release hatch
   void OpenCargo(); //opens grabber to release cargo
   void CloseCargo(); //opens grabber to hold cargo
-  void TiltDown();
-  void TiltUp();
 };
