@@ -8,8 +8,12 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class ObtainHatch : public frc::Command {
+using namespace frc;
+using namespace wpi;
+
+class ObtainHatch : public CommandBase {
  public:
   ObtainHatch();
   void Initialize() override;

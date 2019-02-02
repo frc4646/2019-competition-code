@@ -7,9 +7,10 @@
 
 #include "commands/ObtainHatch.h"
 
-ObtainHatch::ObtainHatch() {
+ObtainHatch::ObtainHatch() : CommandBase("ObtainHatch") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  Requires((frc::Subsystem*) grab.get());
   //Requires grabber subsystem.
   //Assumes grabber is closed and popper is not extended.
 }
@@ -20,6 +21,7 @@ void ObtainHatch::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void ObtainHatch::Execute() {
   //Open Grabber to fit inside hatch hole.
+  grab->OpenHatch();
 }
 
 // Make this return true when this Command no longer needs to run execute()

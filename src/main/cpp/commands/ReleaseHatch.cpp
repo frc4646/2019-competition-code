@@ -7,9 +7,10 @@
 
 #include "commands/ReleaseHatch.h"
 
-ReleaseHatch::ReleaseHatch() {
+ReleaseHatch::ReleaseHatch() : CommandBase("ReleaseHatch") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  Requires((frc::Subsystem*) grab.get());
   //Requires grabber subsystem and popper subsystem
   //Assumes grabber is open and popper is not extended.
 }
@@ -20,7 +21,8 @@ void ReleaseHatch::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void ReleaseHatch::Execute() {
   //Close Grabber to release hatch.
-}
+  grab->CloseHatch();
+  }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ReleaseHatch::IsFinished() { return false; }

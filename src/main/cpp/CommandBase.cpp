@@ -63,4 +63,5 @@ void CommandBase::init() {
   tilt.reset(new TiltSystem());
   grab.reset(new GrabberSystem());
   intake.reset(new IntakeSystem());
+  intake.reset(new IntakeSystem());
 }
