@@ -9,7 +9,7 @@
 #define LiftControl_H
 
 #include <CommandBase.h>
-#include <WPILib.h>
+#include <frc/WPILib.h>
 
 class LiftControl : public CommandBase {
  public:
