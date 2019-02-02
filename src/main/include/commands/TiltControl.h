@@ -5,25 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef TiltControl_H
+#define TiltControl_H
 
-#include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
+#include <CommandBase.h>
+#include <WPILib.h>
 
 using namespace frc;
 
-class TiltSystem : public Subsystem {
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-  double tolerance = 0;
-  DoubleSolenoid * armTilt;
-
+class TiltControl : public CommandBase {
  public:
-  TiltSystem();
-  double getTolerance();
-  double getAngle();
-  void Tilt(DoubleSolenoid::Value position); //tilt grabber in given direction
-  void off(); //stops tilting
-  void InitDefaultCommand() override;
+  TiltControl();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
+
+#endif
