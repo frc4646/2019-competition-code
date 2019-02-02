@@ -7,9 +7,14 @@
 
 #include "subsystems/IntakeSystem.h"
 
+using namespace frc;
+
 IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {
-  leftIntake = new frc::Spark(0);
-  rightIntake = new frc::Spark(1);
+  leftIntake = new Spark(0);
+  rightIntake = new Spark(1);
+
+  leftIntakeCylinder = new Solenoid(0);
+  rightIntakeCylinder = new Solenoid(1);
 
   rightIntake->SetInverted(true);
 } //Example port numbers
@@ -25,4 +30,9 @@ void IntakeSystem::InitDefaultCommand() {
 void IntakeSystem::SetIntakeSpeed(double leftSpeed, double rightSpeed) {
   leftIntake->Set(leftSpeed);
   rightIntake->Set(rightSpeed);
+}
+
+void IntakeSystem::SetCylinderPosition(bool leftPosition, bool rightPosition){
+  leftIntakeCylinder->Set(leftPosition);
+  rightIntakeCylinder->Set(rightPosition);
 }

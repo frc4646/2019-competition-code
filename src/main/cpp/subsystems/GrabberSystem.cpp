@@ -12,6 +12,7 @@ GrabberSystem::GrabberSystem() : Subsystem("GrabberSystem") {}
 void GrabberSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+  grabber = new Servo(0);
 }
 
 // Put methods for controlling this subsystem
@@ -19,13 +20,18 @@ void GrabberSystem::InitDefaultCommand() {
 
 void GrabberSystem::OpenHatch(){
   //opens grabber to hold hatch
+  grabber->Set(0.9);
 } 
 void GrabberSystem::CloseHatch(){
-  //closes grabber to release hatch
+  grabber->Set(0.2);
 } 
 void GrabberSystem::OpenCargo(){
-  //opens grabber to release cargo
+  grabber->Set(0.9);
 } 
 void GrabberSystem::CloseCargo(){
-  //closes grabber to hold cargo
+  grabber->Set(0.2);
 } 
+
+void GrabberSystem::SetPosition(double position){ //For tele-op
+  grabber->Set(position);
+}

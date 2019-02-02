@@ -18,8 +18,10 @@ public:
   double GetLeftJoystickY();
   double GetRightJoystickY();
 
-  bool GetMechJoystickButton9(); //For intake
-  bool GetMechJoystickButton10(); //For outake
+  bool GetMechJoystickButton9(); //For intake intake
+  bool GetMechJoystickButton10(); //For outake intake
+  bool GetMechJoystickButton11(); //For intake cylinder and grabber up.
+  bool GetMechJoystickButton12(); //For intake cylinder and grabber down.
   double GetMechJoystickThrottle(); //Not being used (for now)
 
 private:

@@ -17,6 +17,7 @@ class GrabberSystem : public Subsystem {
   // It's desirable that everything possible under private except
   // for methods that implement subsystem
   //linear actuator
+  Servo * grabber;
 
  public:
   GrabberSystem();
@@ -25,4 +26,5 @@ class GrabberSystem : public Subsystem {
   void CloseHatch(); //closes grabber to release hatch
   void OpenCargo(); //opens grabber to release cargo
   void CloseCargo(); //opens grabber to hold cargo
+  void SetPosition(double position); //For TeleOp
 };

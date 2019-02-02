@@ -5,53 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/IntakeControl.h"
+#include "commands/GrabberControl.h"
 
-IntakeControl::IntakeControl() : CommandBase("IntakeControl") {
+GrabberControl::GrabberControl() : CommandBase("GrabController") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires((frc::Subsystem*) intake.get());
+  Requires((frc::Subsystem*) grab.get());
 }
 
 // Called just before this Command runs the first time
-void IntakeControl::Initialize() {
-  intake->SetIntakeSpeed(0.0, 0.0);
-}
+void GrabberControl::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeControl::Execute() {
-  if (oi->GetMechJoystickButton9()) //Intake intake.
+void GrabberControl::Execute() {
+  if (oi->GetMechJoystickButton11()) //Up
   {
-    intake->SetIntakeSpeed(0.5, 0.5);
+    Wait(0.25); //Waits for intake.
+    grab->SetPosition(0.9);
   }
-  else if (oi->GetMechJoystickButton10()) //Outake intake.
+  if (oi->GetMechJoystickButton12()) //Down
   {
-    intake->SetIntakeSpeed(-0.5, -0.5);
-  }
-  else
-  {
-    intake->SetIntakeSpeed(0.0, 0.0);
-  }
-  
-  if (oi->GetMechJoystickButton11()) //For intake cylinder up.
-  {
-    intake->SetCylinderPosition(true, true);
-  }
-  if (oi->GetMechJoystickButton12()) //For intake cylinder down.
-  {
-    Wait(0.25); //Waits for grabber.
-    intake->SetCylinderPosition(false, false);
+    grab->SetPosition(0.2);
   }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool IntakeControl::IsFinished() { return false; }
+bool GrabberControl::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void IntakeControl::End() {
-  intake->SetIntakeSpeed(0.0, 0.0);
-}
+void GrabberControl::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void IntakeControl::Interrupted() {}
+void GrabberControl::Interrupted() {}

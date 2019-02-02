@@ -9,17 +9,18 @@
 #define IntakeControl_H
 
 #include <CommandBase.h>
-#include <WPILib.h>
+#include <frc/WPILib.h>
 
 using namespace frc;
 
-class IntakeControl : public CommandBase {
+class GrabberControl : public CommandBase {
  public:
-  IntakeControl();
+  GrabberControl();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
 };
+
 #endif
