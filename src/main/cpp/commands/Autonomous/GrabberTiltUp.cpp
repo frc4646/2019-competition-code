@@ -5,48 +5,38 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/AlignToTarget.h"
+#include "commands/Autonomous/GrabberTiltUp.h"
 
-AlignToTarget::AlignToTarget() {
+GrabberTiltUp::GrabberTiltUp() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  // Requires Perception Subsystem, Tank Drive Subsystem
-  // Simaliar to Drive to XY
+  //Requires tilt subsystem.
+  //Assumes popper is not extended.
 }
 
 // Called just before this Command runs the first time
-void AlignToTarget::Initialize() {
-
-}
+void GrabberTiltUp::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void AlignToTarget::Execute() {
-  /*
-  Ask {
-    is Vision Target in view of Pixy2 and/or ultrasonic with in certain distance {
-      if yes {
-        turn tward target 
-        move tward target checking that i am still facing the target
-      } else no {
-        end Align to target
-      }
-    }
-  }
-  */
+void GrabberTiltUp::Execute() {
+  //Time Based: (Better for Tele-Op)
+    //Tilt up at inputed power.
+    //Sleep for a certain amount of milliseconds.
+    //Stop tilting down.
+
+  //Position Based: (Better for Autonomous)
+    //Set target position to inputed position.
+    //Check position of tilt subsystem.
+    //If tilt position is not at target position, stop. Else:
+    //Set tilt position to inputed position.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AlignToTarget::IsFinished() { 
-  return false; 
-}
+bool GrabberTiltUp::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void AlignToTarget::End() {
-  //if vision target is not in sight with in certain distance
-}
+void GrabberTiltUp::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AlignToTarget::Interrupted() {
-
-}
+void GrabberTiltUp::Interrupted() {}

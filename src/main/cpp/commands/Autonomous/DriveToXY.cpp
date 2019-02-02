@@ -5,29 +5,42 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ReleaseHatch.h"
+#include "commands/Autonomous/DriveToXY.h"
 
-ReleaseHatch::ReleaseHatch() {
+DriveToXY::DriveToXY(double x, double y, double h) {
+  //pass in 3 doubles, x and y (+x goes to the right, +y goes forward) 
+  //and h (end heading, direction robot faces at end)
+
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires grabber subsystem and popper subsystem
-  //Assumes grabber is open and popper is not extended.
+  //Requires drivetrain
 }
 
 // Called just before this Command runs the first time
-void ReleaseHatch::Initialize() {}
+void DriveToXY::Initialize() {
+  
+}
 
 // Called repeatedly when this Command is scheduled to run
-void ReleaseHatch::Execute() {
-  //Close Grabber to release hatch.
+void DriveToXY::Execute() {
+  /* Can only turn between -90 and 90 degrees
+    1. rotate so robot points at given point
+      theta = arctan(x/y)
+    2. drive to point
+      distance = sqrt(x^2 + y^2)
+    3. rotate to end heading
+      angle = 90 + theta
+    */
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ReleaseHatch::IsFinished() { return false; }
+bool DriveToXY::IsFinished() { 
+  return false; 
+}
 
 // Called once after isFinished returns true
-void ReleaseHatch::End() {}
+void DriveToXY::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ReleaseHatch::Interrupted() {}
+void DriveToXY::Interrupted() {}

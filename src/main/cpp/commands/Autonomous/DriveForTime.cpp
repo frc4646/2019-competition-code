@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/DriveForTime.h"
+#include "commands/Autonomous/DriveForTime.h"
 
 DriveForTime::DriveForTime(double seconds, double speed) : CommandBase("DriveForTime") {
   // Use Requires() here to declare subsystem dependencies

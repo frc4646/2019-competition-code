@@ -5,33 +5,37 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/PopCargo.h"
+#include "commands/Autonomous/StoreIntake.h"
 
-PopCargo::PopCargo() {
+StoreIntake::StoreIntake() {
+  // Store intake same as intake intake
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //requires popper and grabber
+  // Requires Intake Subsystem
 }
 
 // Called just before this Command runs the first time
-void PopCargo::Initialize() {
-  //two solenoids; one controls popping out, the other popping in.
+void StoreIntake::Initialize() {
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void PopCargo::Execute() {
-  //open the grabber to X degrees and pop popper out, then bring popper back in.
+void StoreIntake::Execute() {
+  // Put intake inside of chassis for start and for when it is not being used
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool PopCargo::IsFinished() { 
-  //finished when popper comes back in
+bool StoreIntake::IsFinished() { 
   return false; 
 }
 
 // Called once after isFinished returns true
-void PopCargo::End() {}
+void StoreIntake::End() {
+
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PopCargo::Interrupted() {}
+void StoreIntake::Interrupted() {
+
+}

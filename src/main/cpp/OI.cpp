@@ -15,15 +15,31 @@ using namespace wpi;
 OI::OI() :
   // Process operator interface input here.
   leftJoystick(0),
-  rightJoystick(1)
+  rightJoystick(1),
+  mechJoystick(2)
 {}
 
 double OI::GetLeftJoystickY()
 {
-  return leftJoystick.GetRawAxis(1);
+  return leftJoystick.GetRawAxis(2);
 }
 
 double OI::GetRightJoystickY()
 {
-  return rightJoystick.GetRawAxis(1);
+  return rightJoystick.GetRawAxis(2);
+}
+
+bool OI::GetMechJoystickButton9() //For intake
+{
+  return mechJoystick.GetRawButtonPressed(9);
+}
+
+bool OI::GetMechJoystickButton10() //For outake
+{
+  return mechJoystick.GetRawButtonPressed(10);
+}
+
+double OI::GetMechJoystickThrottle() //Not being used (for now)
+{
+  return mechJoystick.GetRawAxis(3);
 }

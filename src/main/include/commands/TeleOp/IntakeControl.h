@@ -5,25 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef IntakeControl_H
+#define IntakeControl_H
 
+#include <CommandBase.h>
 #include <frc/WPILib.h>
 
 using namespace frc;
 using namespace wpi;
 
-class OI {
-public:
-  OI();
-  double GetLeftJoystickY();
-  double GetRightJoystickY();
-
-  bool GetMechJoystickButton9(); //For intake
-  bool GetMechJoystickButton10(); //For outake
-  double GetMechJoystickThrottle(); //Not being used (for now)
-
-private:
-    Joystick leftJoystick;
-    Joystick rightJoystick;
-    Joystick mechJoystick;
+class IntakeControl : public CommandBase {
+ public:
+  IntakeControl();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
+#endif

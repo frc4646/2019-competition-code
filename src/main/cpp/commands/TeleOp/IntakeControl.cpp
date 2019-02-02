@@ -5,29 +5,44 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ObtainHatch.h"
+#include "commands/TeleOp/IntakeControl.h"
 
-ObtainHatch::ObtainHatch() {
+IntakeControl::IntakeControl() : CommandBase("IntakeControl") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires grabber subsystem.
-  //Assumes grabber is closed and popper is not extended.
+  Requires((frc::Subsystem*) intake.get());
 }
 
 // Called just before this Command runs the first time
-void ObtainHatch::Initialize() {}
+void IntakeControl::Initialize() {
+  intake->SetIntakeSpeed(0.0, 0.0);
+}
 
 // Called repeatedly when this Command is scheduled to run
-void ObtainHatch::Execute() {
-  //Open Grabber to fit inside hatch hole.
+void IntakeControl::Execute() {
+  if (oi->GetMechJoystickButton9()) //Intake intake.
+  {
+    intake->SetIntakeSpeed(0.5, 0.5);
+  }
+  else if (oi->GetMechJoystickButton10()) //Outake intake.
+  {
+    intake->SetIntakeSpeed(-0.5, -0.5);
+  }
+  else
+  {
+    intake->SetIntakeSpeed(0.0, 0.0);
+  }
+  
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ObtainHatch::IsFinished() { return false; }
+bool IntakeControl::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ObtainHatch::End() {}
+void IntakeControl::End() {
+  intake->SetIntakeSpeed(0.0, 0.0);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ObtainHatch::Interrupted() {}
+void IntakeControl::Interrupted() {}

@@ -5,42 +5,37 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/DriveToXY.h"
+#include "commands/TeleOp/TeleopDrive.h"
 
-DriveToXY::DriveToXY(double x, double y, double h) {
-  //pass in 3 doubles, x and y (+x goes to the right, +y goes forward) 
-  //and h (end heading, direction robot faces at end)
-
+TeleopDrive::TeleopDrive() : CommandBase("TeleopDrive") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires drivetrain
+
+  // Requires the drivetrain subsystem.
+  Requires((frc::Subsystem*) drivetrain.get());
 }
 
 // Called just before this Command runs the first time
-void DriveToXY::Initialize() {
-  
+void TeleopDrive::Initialize() {
+  // Send motor stop command.
+  drivetrain->SetDriveSpeed(0.0, 0.0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveToXY::Execute() {
-  /* Can only turn between -90 and 90 degrees
-    1. rotate so robot points at given point
-      theta = arctan(x/y)
-    2. drive to point
-      distance = sqrt(x^2 + y^2)
-    3. rotate to end heading
-      angle = 90 + theta
-    */
+void TeleopDrive::Execute() {
+  // Set left drive to left joystick.
+  // Set right drive to right joystick.
+  drivetrain->SetDriveSpeed(oi->GetLeftJoystickY(), oi->GetRightJoystickY());
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveToXY::IsFinished() { 
-  return false; 
-}
+bool TeleopDrive::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void DriveToXY::End() {}
+void TeleopDrive::End() {
+  drivetrain->SetDriveSpeed(0.0, 0.0);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveToXY::Interrupted() {}
+void TeleopDrive::Interrupted() {}

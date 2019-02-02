@@ -5,36 +5,44 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ObtainCargo.h"
-#include "subsystems/GrabberSystem.h"
-#include "subsystems/TiltSystem.h"
+#include "commands/Autonomous/GrabberTiltDown.h"
 
-ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
+GrabberTiltDown::GrabberTiltDown() : CommandBase("GrabberTiltDown") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires((frc::Subsystem*) tilt.get());
-  //requires grabber and tilt subsystem
-  //assume grabber is open and tilted down.
+  Requires(tilt.get());
+  //Assumes popper is not extended.
 }
 
 // Called just before this Command runs the first time
-void ObtainCargo::Initialize() {
-  //close grabber and tilt up.
-  grab->CloseCargo();
-  grab->TiltUp();}
+void GrabberTiltDown::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ObtainCargo::Execute() {}
+void GrabberTiltDown::Execute() {
+  //Position Based: (Better for Autonomous)
+  tilt->Tilt(direction);
+
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool ObtainCargo::IsFinished() { 
-  //finished once grabber is tilted back up.
-  return false; 
+bool GrabberTiltDown::IsFinished() { 
+  //finished when current angle equals target angle
+  if(tilt->getAngle() <= (target + tilt->getTolerance())){
+    return true;
+  }
+  else {
+    return false; 
+  }
+    
 }
 
 // Called once after isFinished returns true
-void ObtainCargo::End() {}
+void GrabberTiltDown::End() {
+  tilt->off();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ObtainCargo::Interrupted() {}
+void GrabberTiltDown::Interrupted() {
+  End();
+}

@@ -49,6 +49,7 @@ std::unique_ptr<TankDriveSystem> CommandBase::drivetrain = NULL; //std::make_uni
 std::unique_ptr<LiftSystem> CommandBase::lift = NULL;
 std::unique_ptr<TiltSystem> CommandBase::tilt = NULL;
 std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
+std::unique_ptr<IntakeSystem> CommandBase::intake = NULL;
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
 CommandBase::CommandBase(const std::string &name) :
@@ -61,4 +62,5 @@ void CommandBase::init() {
   lift.reset(new LiftSystem());
   tilt.reset(new TiltSystem());
   grab.reset(new GrabberSystem());
+  intake.reset(new IntakeSystem());
 }

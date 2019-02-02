@@ -5,35 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/GoToWallAtDistance.h"
+#include "commands/Autonomous/PopCargo.h"
 
-GoToWallAtDistance::GoToWallAtDistance() {
+PopCargo::PopCargo() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires Tank Drive Subsystem and Perception Subsystem
+  //requires popper and grabber
 }
 
 // Called just before this Command runs the first time
-void GoToWallAtDistance::Initialize() {}
+void PopCargo::Initialize() {
+  //two solenoids; one controls popping out, the other popping in.
+}
 
 // Called repeatedly when this Command is scheduled to run
-void GoToWallAtDistance::Execute() {
-  //double stopDistancePerceptedInches = 12.0;
-  //If wall is greater then stopDistancePerceptedInches away continuously drive using drive train, 
-  //else override and stop drivetrain motors.
+void PopCargo::Execute() {
+  //open the grabber to X degrees and pop popper out, then bring popper back in.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool GoToWallAtDistance::IsFinished() { 
-  //Stop Driving.
+bool PopCargo::IsFinished() { 
+  //finished when popper comes back in
   return false; 
 }
 
 // Called once after isFinished returns true
-void GoToWallAtDistance::End() {
-  //Stop Driving.
-}
+void PopCargo::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void GoToWallAtDistance::Interrupted() {}
+void PopCargo::Interrupted() {}

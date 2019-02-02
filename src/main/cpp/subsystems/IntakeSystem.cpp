@@ -7,7 +7,12 @@
 
 #include "subsystems/IntakeSystem.h"
 
-IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {}
+IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {
+  leftIntake = new frc::Spark(0);
+  rightIntake = new frc::Spark(1);
+
+  rightIntake->SetInverted(true);
+} //Example port numbers
 
 void IntakeSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
@@ -16,3 +21,8 @@ void IntakeSystem::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+void IntakeSystem::SetIntakeSpeed(double leftSpeed, double rightSpeed) {
+  leftIntake->Set(leftSpeed);
+  rightIntake->Set(rightSpeed);
+}
