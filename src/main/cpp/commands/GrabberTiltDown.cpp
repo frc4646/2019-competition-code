@@ -20,7 +20,7 @@ void GrabberTiltDown::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void GrabberTiltDown::Execute() {
   //Position Based: (Better for Autonomous)
-  tilt->Tilt(direction);
+  tilt->Tilt(DoubleSolenoid::Value::kReverse);
 
 }
 

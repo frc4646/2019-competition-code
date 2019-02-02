@@ -20,7 +20,7 @@ ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
 void ObtainCargo::Initialize() {
   //close grabber and tilt up.
   grab->CloseCargo();
-  tilt->Tilt(0);
+  tilt->Tilt(DoubleSolenoid::Value::kForward);
   }
 
 // Called repeatedly when this Command is scheduled to run

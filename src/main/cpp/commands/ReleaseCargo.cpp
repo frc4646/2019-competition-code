@@ -24,7 +24,7 @@ void ReleaseCargo::Execute() {
   //Tilts the tilt subsystem to a certain degree.
   //Open grabber to drop cargo.
   grab->OpenCargo();
-  tilt->Tilt(-0.0);
+  tilt->Tilt(DoubleSolenoid::Value::kReverse);
 }
 // Make this return true when this Command no longer needs to run execute()z  
 bool ReleaseCargo::IsFinished() { return false; }
