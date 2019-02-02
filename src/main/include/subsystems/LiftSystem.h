@@ -8,8 +8,11 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <frc/WPILib.h>
 
-class LiftSystem : public frc::Subsystem {
+using namespace frc;
+
+class LiftSystem : public Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
