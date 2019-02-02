@@ -22,6 +22,9 @@ using namespace frc;
 #include <subsystems/TiltSystem.h>
 #include <subsystems/GrabberSystem.h>
 #include <subsystems/IntakeSystem.h>
+#include <subsystems/PerceptionSystem.h>
+#include <subsystems/PopperSystem.h>
+
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -42,6 +45,8 @@ public:
 	static std::unique_ptr<TiltSystem> tilt;
 	static std::unique_ptr<GrabberSystem> grab;
 	static std::unique_ptr<IntakeSystem> intake;
+	static std::unique_ptr<PerceptionSystem> percept;
+	static std::unique_ptr<PopperSystem> pop;
 	static std::unique_ptr<OI> oi;
 
 };
