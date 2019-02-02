@@ -11,9 +11,8 @@
 #include <frc/WPILib.h>
 
 using namespace frc;
-using namespace wpi;
 
-class IntakeSystem : public frc::Subsystem {
+class IntakeSystem : public Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities

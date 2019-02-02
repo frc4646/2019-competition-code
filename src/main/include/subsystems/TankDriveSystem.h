@@ -14,7 +14,7 @@
 
 using namespace frc;
 
-class TankDriveSystem : public frc::Subsystem {
+class TankDriveSystem : public Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
