@@ -25,7 +25,7 @@ void TiltSystem::off() {
   
 }
 
-void TiltSystem::Tilt(int direction) {
+void TiltSystem::Tilt(double direction) {
   
 }
 

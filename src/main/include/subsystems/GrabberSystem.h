@@ -24,6 +24,4 @@ class GrabberSystem : public frc::Subsystem {
   void CloseHatch(); //closes grabber to release hatch
   void OpenCargo(); //opens grabber to release cargo
   void CloseCargo(); //opens grabber to hold cargo
-  void TiltDown();
-  void TiltUp();
 };

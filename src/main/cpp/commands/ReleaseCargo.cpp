@@ -7,9 +7,11 @@
 
 #include "commands/ReleaseCargo.h"
 
-ReleaseCargo::ReleaseCargo() {
+ReleaseCargo::ReleaseCargo() : CommandBase("ReleaseCargo") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  Requires((frc::Subsystem*) grab.get());
+  Requires((frc::Subsystem*) tilt.get());
   //Requires grabber subsystem, and tilt subsystem.
   //Assumes grabber is closed on cargo and popper is not extended.
 }
@@ -21,9 +23,10 @@ void ReleaseCargo::Initialize() {}
 void ReleaseCargo::Execute() {
   //Tilts the tilt subsystem to a certain degree.
   //Open grabber to drop cargo.
+  grab->OpenCargo();
+  tilt->Tilt(-0.0);
 }
-
-// Make this return true when this Command no longer needs to run execute()
+// Make this return true when this Command no longer needs to run execute()z  
 bool ReleaseCargo::IsFinished() { return false; }
 
 // Called once after isFinished returns true

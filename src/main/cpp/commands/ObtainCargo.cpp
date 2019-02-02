@@ -6,12 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/ObtainCargo.h"
-#include "subsystems/GrabberSystem.h"
-#include "subsystems/TiltSystem.h"
 
 ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  Requires((frc::Subsystem*) grab.get());
   Requires((frc::Subsystem*) tilt.get());
   //requires grabber and tilt subsystem
   //assume grabber is open and tilted down.
@@ -21,7 +20,8 @@ ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
 void ObtainCargo::Initialize() {
   //close grabber and tilt up.
   grab->CloseCargo();
-  grab->TiltUp();}
+  tilt->Tilt(0.0);
+  }
 
 // Called repeatedly when this Command is scheduled to run
 void ObtainCargo::Execute() {}

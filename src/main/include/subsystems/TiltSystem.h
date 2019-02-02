@@ -19,7 +19,7 @@ class TiltSystem : public frc::Subsystem {
   TiltSystem();
   double getTolerance();
   double getAngle();
-  void Tilt(int direction); //tilt grabber in given direction
+  void Tilt(double direction); //tilt grabber in given direction
   void off(); //stops tilting
   void InitDefaultCommand() override;
 };
