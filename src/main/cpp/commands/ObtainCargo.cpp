@@ -6,8 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/ObtainCargo.h"
-#include "subsystems/GrabberSystem.h"
-#include "subsystems/TiltSystem.h"
 
 ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
   // Use Requires() here to declare subsystem dependencies

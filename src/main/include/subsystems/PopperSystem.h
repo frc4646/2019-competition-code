@@ -8,9 +8,11 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <frc/WPILib.h>
 
+using namespace frc;
 
-class PopperSystem : public frc::Subsystem {
+class PopperSystem : public Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities

@@ -29,9 +29,3 @@ void GrabberSystem::OpenCargo(){
 void GrabberSystem::CloseCargo(){
   //closes grabber to hold cargo
 } 
-void GrabberSystem::TiltDown(){
-
-}
-void GrabberSystem::TiltUp(){
-
-}
