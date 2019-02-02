@@ -29,6 +29,16 @@ double OI::GetRightJoystickY()
   return rightJoystick.GetRawAxis(2);
 }
 
+bool OI::GetMechJoystickButton7() //For Lift up
+{
+  return mechJoystick.GetRawButtonPressed(7);
+}
+
+bool OI::GetMechJoystickButton8() //For Lift down
+{
+  return mechJoystick.GetRawButtonPressed(8);
+}
+
 bool OI::GetMechJoystickButton9() //For intake intake
 {
   return mechJoystick.GetRawButtonPressed(9);

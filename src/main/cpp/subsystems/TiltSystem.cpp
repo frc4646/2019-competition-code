@@ -7,7 +7,9 @@
 
 #include "subsystems/TiltSystem.h"
 
-TiltSystem::TiltSystem() : Subsystem("TiltSystem") {}
+TiltSystem::TiltSystem() : Subsystem("TiltSystem") {
+  armTilt = new DoubleSolenoid{0, 1};
+}
 
 void TiltSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
@@ -22,11 +24,11 @@ double TiltSystem::getAngle() {
 }
 
 void TiltSystem::off() {
-  
+  armTilt->Set(DoubleSolenoid::Value::kOff);
 }
 
-void TiltSystem::Tilt(double direction) {
-  
+void TiltSystem::Tilt(DoubleSolenoid::Value position) {
+  armTilt->Set(position);
 }
 
 // Put methods for controlling this subsystem
