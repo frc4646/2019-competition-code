@@ -5,30 +5,37 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/ReleaseCargo.h"
+#include "commands/TeleopDrive.h"
 
-ReleaseCargo::ReleaseCargo() {
+TeleopDrive::TeleopDrive() : CommandBase("TeleopDrive") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires grabber subsystem, and tilt subsystem.
-  //Assumes grabber is closed on cargo and popper is not extended.
+
+  // Requires the drivetrain subsystem.
+  Requires((frc::Subsystem*) drivetrain.get());
 }
 
 // Called just before this Command runs the first time
-void ReleaseCargo::Initialize() {}
+void TeleopDrive::Initialize() {
+  // Send motor stop command.
+  drivetrain->SetDriveSpeed(0.0, 0.0);
+}
 
 // Called repeatedly when this Command is scheduled to run
-void ReleaseCargo::Execute() {
-  //Tilts the tilt subsystem to a certain degree.
-  //Open grabber to drop cargo.
+void TeleopDrive::Execute() {
+  // Set left drive to left joystick.
+  // Set right drive to right joystick.
+  drivetrain->SetDriveSpeed(oi->GetLeftJoystickY(), oi->GetRightJoystickY());
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ReleaseCargo::IsFinished() { return false; }
+bool TeleopDrive::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ReleaseCargo::End() {}
+void TeleopDrive::End() {
+  drivetrain->SetDriveSpeed(0.0, 0.0);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ReleaseCargo::Interrupted() {}
+void TeleopDrive::Interrupted() {}

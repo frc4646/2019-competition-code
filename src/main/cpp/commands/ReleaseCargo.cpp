@@ -5,29 +5,30 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/ReleaseHatch.h"
+#include "commands/ReleaseCargo.h"
 
-ReleaseHatch::ReleaseHatch() {
+ReleaseCargo::ReleaseCargo() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires grabber subsystem and popper subsystem
-  //Assumes grabber is open and popper is not extended.
+  //Requires grabber subsystem, and tilt subsystem.
+  //Assumes grabber is closed on cargo and popper is not extended.
 }
 
 // Called just before this Command runs the first time
-void ReleaseHatch::Initialize() {}
+void ReleaseCargo::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ReleaseHatch::Execute() {
-  //Close Grabber to release hatch.
+void ReleaseCargo::Execute() {
+  //Tilts the tilt subsystem to a certain degree.
+  //Open grabber to drop cargo.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ReleaseHatch::IsFinished() { return false; }
+bool ReleaseCargo::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ReleaseHatch::End() {}
+void ReleaseCargo::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ReleaseHatch::Interrupted() {}
+void ReleaseCargo::Interrupted() {}

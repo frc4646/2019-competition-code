@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/LiftToHeight.h"
+#include "commands/LiftToHeight.h"
 
 LiftToHeight::LiftToHeight(double distance) : CommandBase("LiftToHeight") {
   // Use Requires() here to declare subsystem dependencies

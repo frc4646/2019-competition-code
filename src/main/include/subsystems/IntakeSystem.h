@@ -8,20 +8,15 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
 
-using namespace frc;
-using namespace wpi;
+
 
 class IntakeSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
-  Spark * leftIntake;
-  Spark * rightIntake;
 
  public:
   IntakeSystem();
   void InitDefaultCommand() override;
-  void SetIntakeSpeed(double leftSpeed, double rightSpeed);
 };

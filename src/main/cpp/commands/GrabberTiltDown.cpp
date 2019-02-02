@@ -5,48 +5,44 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/AlignToTarget.h"
+#include "commands/GrabberTiltDown.h"
 
-AlignToTarget::AlignToTarget() {
+GrabberTiltDown::GrabberTiltDown() : CommandBase("GrabberTiltDown") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  // Requires Perception Subsystem, Tank Drive Subsystem
-  // Simaliar to Drive to XY
+  Requires(tilt.get());
+  //Assumes popper is not extended.
 }
 
 // Called just before this Command runs the first time
-void AlignToTarget::Initialize() {
-
-}
+void GrabberTiltDown::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void AlignToTarget::Execute() {
-  /*
-  Ask {
-    is Vision Target in view of Pixy2 and/or ultrasonic with in certain distance {
-      if yes {
-        turn tward target 
-        move tward target checking that i am still facing the target
-      } else no {
-        end Align to target
-      }
-    }
-  }
-  */
+void GrabberTiltDown::Execute() {
+  //Position Based: (Better for Autonomous)
+  tilt->Tilt(direction);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AlignToTarget::IsFinished() { 
-  return false; 
+bool GrabberTiltDown::IsFinished() { 
+  //finished when current angle equals target angle
+  if(tilt->getAngle() <= (target + tilt->getTolerance())){
+    return true;
+  }
+  else {
+    return false; 
+  }
+    
 }
 
 // Called once after isFinished returns true
-void AlignToTarget::End() {
-  //if vision target is not in sight with in certain distance
+void GrabberTiltDown::End() {
+  tilt->off();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AlignToTarget::Interrupted() {
-
+void GrabberTiltDown::Interrupted() {
+  End();
 }

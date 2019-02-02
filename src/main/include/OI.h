@@ -18,12 +18,7 @@ public:
   double GetLeftJoystickY();
   double GetRightJoystickY();
 
-  bool GetMechJoystickButton9(); //For intake
-  bool GetMechJoystickButton10(); //For outake
-  double GetMechJoystickThrottle(); //Not being used (for now)
-
 private:
     Joystick leftJoystick;
     Joystick rightJoystick;
-    Joystick mechJoystick;
 };

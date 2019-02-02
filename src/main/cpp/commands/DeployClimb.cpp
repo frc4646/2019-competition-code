@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/DeployClimb.h"
+#include "commands/DeployClimb.h"
 
 DeployClimb::DeployClimb() {
   // Use Requires() here to declare subsystem dependencies

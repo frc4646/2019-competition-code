@@ -5,36 +5,42 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/ObtainCargo.h"
-#include "subsystems/GrabberSystem.h"
-#include "subsystems/TiltSystem.h"
+#include "commands/GoToGuideLine.h"
 
-ObtainCargo::ObtainCargo() : CommandBase("ObtainCargo") {
+GoToGuideLine::GoToGuideLine() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires((frc::Subsystem*) tilt.get());
-  //requires grabber and tilt subsystem
-  //assume grabber is open and tilted down.
+  //requires drivetrain and perception systems
+  /* meant for not-extreme cases (don't use to go to a guide line 
+  half way across the field)*/
+  //the same as DriveToXY except x,y, and heading are determined by guide line
 }
 
 // Called just before this Command runs the first time
-void ObtainCargo::Initialize() {
-  //close grabber and tilt up.
-  grab->CloseCargo();
-  grab->TiltUp();}
+void GoToGuideLine::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ObtainCargo::Execute() {}
+void GoToGuideLine::Execute() {
+  /*Can only turn between -90 and 90 degrees
+    1. use pixy2 to find closest point on the guide line. Set as (x,y).
+    2. use pixy2 to find angle between guide line and x axis. Set as beta.
+    3. rotate so robot points at given point
+      theta = arctan(x/y)
+    4. drive to point
+      distance = sqrt(x^2 + y^2)
+    5. rotate to end heading
+      alpha = 90 + theta - beta
+  */
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool ObtainCargo::IsFinished() { 
-  //finished once grabber is tilted back up.
+bool GoToGuideLine::IsFinished() { 
   return false; 
 }
 
 // Called once after isFinished returns true
-void ObtainCargo::End() {}
+void GoToGuideLine::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ObtainCargo::Interrupted() {}
+void GoToGuideLine::Interrupted() {}

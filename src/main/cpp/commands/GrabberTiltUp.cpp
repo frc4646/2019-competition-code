@@ -5,29 +5,38 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/ObtainHatch.h"
+#include "commands/GrabberTiltUp.h"
 
-ObtainHatch::ObtainHatch() {
+GrabberTiltUp::GrabberTiltUp() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires grabber subsystem.
-  //Assumes grabber is closed and popper is not extended.
+  //Requires tilt subsystem.
+  //Assumes popper is not extended.
 }
 
 // Called just before this Command runs the first time
-void ObtainHatch::Initialize() {}
+void GrabberTiltUp::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ObtainHatch::Execute() {
-  //Open Grabber to fit inside hatch hole.
+void GrabberTiltUp::Execute() {
+  //Time Based: (Better for Tele-Op)
+    //Tilt up at inputed power.
+    //Sleep for a certain amount of milliseconds.
+    //Stop tilting down.
+
+  //Position Based: (Better for Autonomous)
+    //Set target position to inputed position.
+    //Check position of tilt subsystem.
+    //If tilt position is not at target position, stop. Else:
+    //Set tilt position to inputed position.
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ObtainHatch::IsFinished() { return false; }
+bool GrabberTiltUp::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ObtainHatch::End() {}
+void GrabberTiltUp::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ObtainHatch::Interrupted() {}
+void GrabberTiltUp::Interrupted() {}

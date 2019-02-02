@@ -5,36 +5,37 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/DeployIntake.h"
+#include "commands/StoreIntake.h"
 
-DeployIntake::DeployIntake() {
+StoreIntake::StoreIntake() {
+  // Store intake same as intake intake
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  // Requires Intake subsystem 
+  // Requires Intake Subsystem
 }
 
 // Called just before this Command runs the first time
-void DeployIntake::Initialize() {
+void StoreIntake::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DeployIntake::Execute() {
-  // Put intake outside of chassis when cargo is wanted
+void StoreIntake::Execute() {
+  // Put intake inside of chassis for start and for when it is not being used
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DeployIntake::IsFinished() { 
+bool StoreIntake::IsFinished() { 
   return false; 
 }
 
 // Called once after isFinished returns true
-void DeployIntake::End() {
+void StoreIntake::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DeployIntake::Interrupted() {
+void StoreIntake::Interrupted() {
 
 }

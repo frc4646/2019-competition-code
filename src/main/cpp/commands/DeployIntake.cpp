@@ -5,35 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonomous/GoToWallAtDistance.h"
+#include "commands/DeployIntake.h"
 
-GoToWallAtDistance::GoToWallAtDistance() {
+DeployIntake::DeployIntake() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  //Requires Tank Drive Subsystem and Perception Subsystem
+  // Requires Intake subsystem 
 }
 
 // Called just before this Command runs the first time
-void GoToWallAtDistance::Initialize() {}
+void DeployIntake::Initialize() {
+
+}
 
 // Called repeatedly when this Command is scheduled to run
-void GoToWallAtDistance::Execute() {
-  //double stopDistancePerceptedInches = 12.0;
-  //If wall is greater then stopDistancePerceptedInches away continuously drive using drive train, 
-  //else override and stop drivetrain motors.
+void DeployIntake::Execute() {
+  // Put intake outside of chassis when cargo is wanted
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool GoToWallAtDistance::IsFinished() { 
-  //Stop Driving.
+bool DeployIntake::IsFinished() { 
   return false; 
 }
 
 // Called once after isFinished returns true
-void GoToWallAtDistance::End() {
-  //Stop Driving.
+void DeployIntake::End() {
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void GoToWallAtDistance::Interrupted() {}
+void DeployIntake::Interrupted() {
+
+}
