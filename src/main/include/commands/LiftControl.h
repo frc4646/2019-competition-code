@@ -5,23 +5,19 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef LiftControl_H
+#define LiftControl_H
 
-#include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
+#include <CommandBase.h>
+#include <WPILib.h>
 
-using namespace frc;
-
-class LiftSystem : public Subsystem {
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-  Spark * liftMotor;
-
+class LiftControl : public CommandBase {
  public:
-  LiftSystem();
-  void InitDefaultCommand() override;
-  void LiftAtSpeed(double speed);
-  double GetHeight();
-  void HoldHeight();
+  LiftControl();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
+#endif

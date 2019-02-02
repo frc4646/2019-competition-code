@@ -12,16 +12,17 @@ LiftSystem::LiftSystem() : Subsystem("LiftSystem") {}
 void LiftSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+  liftMotor = new Spark(0);
 }
 
 void LiftSystem::LiftAtSpeed(double speed){
-  //liftMotor->Set(speed);
+  liftMotor->Set(speed);
 }
 double LiftSystem::GetHeight(){
   //stringpot->GetUrHeightYouStupidStringpot; //do mathessss
 }
 void LiftSystem::HoldHeight(){
-  //liftMotor->Hold(speed);
+  liftMotor->Set(0.1);
 }
 
 // Put methods for controlling this subsystem

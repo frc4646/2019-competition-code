@@ -39,11 +39,6 @@ bool OI::GetMechJoystickButton10() //For outake intake
   return mechJoystick.GetRawButtonPressed(10);
 }
 
-double OI::GetMechJoystickThrottle() //Not being used (for now)
-{
-  return mechJoystick.GetRawAxis(3);
-}
-
 bool OI::GetMechJoystickButton11() //For intake cylinder and grabber up.
 {
   return mechJoystick.GetRawButtonPressed(11);
@@ -52,4 +47,14 @@ bool OI::GetMechJoystickButton11() //For intake cylinder and grabber up.
 bool OI::GetMechJoystickButton12() //For intake cylinder and grabber down.
 {
   return mechJoystick.GetRawButtonPressed(12);
+}
+
+double OI::GetMechJoystickThrottle() //For Lift
+{
+  return mechJoystick.GetRawAxis(3);
+}
+
+bool OI::GetMechJoystickButton1() //For Lift.
+{
+  return mechJoystick.GetRawButtonPressed(1);
 }
