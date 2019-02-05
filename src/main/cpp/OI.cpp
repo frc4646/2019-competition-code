@@ -17,7 +17,11 @@ OI::OI() :
   leftJoystick(0),
   rightJoystick(1),
   mechJoystick(2)
-{}
+{
+  Joystick* joy = new Joystick(2);
+  JoystickButton* upTilt = new JoystickButton(joy, 1);
+  upTilt->WhenPressed(new TiltUp());
+}
 
 double OI::GetLeftJoystickY()
 {
@@ -31,7 +35,7 @@ double OI::GetRightJoystickY()
 
 bool OI::GetMechJoystickButton7() //For Lift up
 {
-  return mechJoystick.GetRawButtonPressed(7);
+    return mechJoystick.GetRawButtonPressed(7);
 }
 
 bool OI::GetMechJoystickButton8() //For Lift down
