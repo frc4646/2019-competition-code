@@ -7,7 +7,7 @@
 
 #include "commands/TiltUp.h"
 
-TiltUp::TiltUp() {
+TiltUp::TiltUp() : CommandBase("TiltUp"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) tilt.get());

@@ -7,7 +7,7 @@
 
 #include "commands/TiltDown.h"
 
-TiltDown::TiltDown() {
+TiltDown::TiltDown() : CommandBase("TiltDown") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) tilt.get());

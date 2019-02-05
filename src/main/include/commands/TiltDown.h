@@ -5,8 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef TiltControl_H
-#define TiltControl_H
+#ifndef TiltDown_H
+#define TiltDown_H
 
 #include <CommandBase.h>
 #include <frc/WPILib.h>

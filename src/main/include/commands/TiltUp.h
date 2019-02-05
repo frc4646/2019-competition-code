@@ -5,14 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef TiltControl_H
-#define TiltControl_H
+#ifndef TiltUp_H
+#define TiltUp_H
 
-#include <CommandBase.h>
+#include <frc/commands/Command.h>
 #include <frc/WPILib.h>
+#include <CommandBase.h>
+
 
 using namespace frc;
-
 
 class TiltUp : public CommandBase {
  public:

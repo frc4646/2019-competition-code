@@ -8,6 +8,7 @@
 #include "OI.h"
 
 #include <frc/WPILib.h>
+#include <commands/TiltUp.h>
 
 using namespace frc;
 using namespace wpi;
