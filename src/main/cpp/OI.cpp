@@ -12,13 +12,10 @@
 #include <commands/OutakeCargo.h>
 #include <commands/StoreIntake.h>
 #include <commands/DeployIntake.h>
-<<<<<<< HEAD
 #include <commands/DeployClimb.h>
 #include <commands/StoreClimb.h>
-=======
 #include <commands/GrabberTiltUp.h>
 #include <commands/GrabberTiltDown.h>
->>>>>>> f4b0057b8631edc401f5452c4460c5f659a16a2a
 
 using namespace frc;
 using namespace wpi;

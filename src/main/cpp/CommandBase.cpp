@@ -50,11 +50,7 @@ std::unique_ptr<LiftSystem> CommandBase::lift = NULL;
 std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
 std::unique_ptr<IntakeSystem> CommandBase::intake = NULL;
 std::unique_ptr<PerceptionSystem> CommandBase::percept = NULL;
-<<<<<<< HEAD
-std::unique_ptr<PopperSystem> CommandBase::pop = NULL;
 std::unique_ptr<ClimberSystem> CommandBase::slam = NULL;
-=======
->>>>>>> f4b0057b8631edc401f5452c4460c5f659a16a2a
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
 CommandBase::CommandBase(const std::string &name) :
@@ -68,9 +64,5 @@ void CommandBase::init() {
   grab.reset(new GrabberSystem());
   intake.reset(new IntakeSystem());
   percept.reset(new PerceptionSystem());
-<<<<<<< HEAD
-  pop.reset(new PopperSystem());
   slam.reset(new ClimberSystem());
-=======
->>>>>>> f4b0057b8631edc401f5452c4460c5f659a16a2a
 }
