@@ -7,7 +7,7 @@
 
 #include "commands/OutakeCargo.h"
 
-OutakeCargo::OutakeCargo() {
+OutakeCargo::OutakeCargo() : CommandBase("OutakeCargo") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) intake.get());

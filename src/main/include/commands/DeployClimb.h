@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DeployClimb_H
+#define DeployClimb_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
 
 class DeployClimb : public CommandBase {
@@ -19,3 +19,4 @@ class DeployClimb : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

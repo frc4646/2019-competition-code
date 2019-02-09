@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef LiftToHeight_H
+#define LiftToHeight_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class LiftToHeight : public CommandBase {
   private:
@@ -25,3 +22,4 @@ class LiftToHeight : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

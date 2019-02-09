@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef StoreClimb_H
+#define StoreClimb_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
 
 class StoreClimb : public CommandBase {
@@ -19,3 +19,4 @@ class StoreClimb : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

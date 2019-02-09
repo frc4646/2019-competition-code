@@ -7,7 +7,7 @@
 
 #include "commands/IntakeCargo.h"
 
-IntakeCargo::IntakeCargo() {
+IntakeCargo::IntakeCargo() : CommandBase("IntakeCargo") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) intake.get());

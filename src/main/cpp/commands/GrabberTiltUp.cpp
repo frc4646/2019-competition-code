@@ -7,7 +7,7 @@
 
 #include "commands/GrabberTiltUp.h"
 
-GrabberTiltUp::GrabberTiltUp() {
+GrabberTiltUp::GrabberTiltUp() : CommandBase("GrabberTiltUp") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //Requires tilt subsystem.

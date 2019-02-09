@@ -7,7 +7,7 @@
 
 #include "commands/AlignToTarget.h"
 
-AlignToTarget::AlignToTarget() {
+AlignToTarget::AlignToTarget() : CommandBase("AlignToTarget"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   // Requires Perception Subsystem, Tank Drive Subsystem

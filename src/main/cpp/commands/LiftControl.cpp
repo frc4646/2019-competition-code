@@ -7,7 +7,7 @@
 
 #include "commands/LiftControl.h"
 
-LiftControl::LiftControl() : CommandBase("LiftControl"){
+LiftControl::LiftControl() : CommandBase("LiftControl") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) lift.get());

@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DriveForTime_H
+#define DriveForTime_H
 
-#include <frc/WPILib.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class DriveForTime : public CommandBase {
   private:
@@ -25,3 +22,4 @@ class DriveForTime : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

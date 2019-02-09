@@ -7,7 +7,7 @@
 
 #include "commands/GoToWallAtDistance.h"
 
-GoToWallAtDistance::GoToWallAtDistance() {
+GoToWallAtDistance::GoToWallAtDistance() : CommandBase("GoToWallAtDistance") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //Requires Tank Drive Subsystem and Perception Subsystem

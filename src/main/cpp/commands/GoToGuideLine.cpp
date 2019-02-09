@@ -7,7 +7,7 @@
 
 #include "commands/GoToGuideLine.h"
 
-GoToGuideLine::GoToGuideLine() {
+GoToGuideLine::GoToGuideLine() : CommandBase("GoToGuideLine"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //requires drivetrain and perception systems

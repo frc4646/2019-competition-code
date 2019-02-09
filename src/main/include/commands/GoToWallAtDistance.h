@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef GoToWallAtDistance_H
+#define GoToWallAtDistance_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class GoToWallAtDistance : public frc::Command {
+class GoToWallAtDistance : public CommandBase {
  public:
   GoToWallAtDistance();
   void Initialize() override;
@@ -18,3 +19,4 @@ class GoToWallAtDistance : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif

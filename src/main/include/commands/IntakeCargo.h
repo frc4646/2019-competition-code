@@ -9,9 +9,6 @@
 #define IntakeCargo_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
-
-using namespace frc;
 
 class IntakeCargo : public CommandBase {
  public:

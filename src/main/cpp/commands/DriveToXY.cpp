@@ -7,7 +7,7 @@
 
 #include "commands/DriveToXY.h"
 
-DriveToXY::DriveToXY(double x, double y, double h) {
+DriveToXY::DriveToXY(double x, double y, double h) : CommandBase("DriveToXY"){
   //pass in 3 doubles, x and y (+x goes to the right, +y goes forward) 
   //and h (end heading, direction robot faces at end)
 

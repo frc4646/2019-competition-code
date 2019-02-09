@@ -5,14 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef DriveCommandTeleop_H
-#define DriveCommandTeleop_H
+#ifndef TeleopDrive_H
+#define TeleopDrive_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
-
-using namespace frc;
-using namespace wpi;
 
 class TeleopDrive : public CommandBase {
  public:

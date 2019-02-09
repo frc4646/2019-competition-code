@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef AlignToTarget_H
+#define AlignToTarget_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class AlignToTarget : public frc::Command {
+class AlignToTarget : public CommandBase {
  public:
   AlignToTarget();
   void Initialize() override;
@@ -18,3 +19,4 @@ class AlignToTarget : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif

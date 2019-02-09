@@ -9,9 +9,6 @@
 #define StoreIntake_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
-
-using namespace frc;
 
 class StoreIntake : public CommandBase {
  public:

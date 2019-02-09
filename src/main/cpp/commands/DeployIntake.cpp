@@ -7,7 +7,7 @@
 
 #include "commands/DeployIntake.h"
 
-DeployIntake::DeployIntake() {
+DeployIntake::DeployIntake() : CommandBase("DeployIntake") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   // Requires Intake subsystem 

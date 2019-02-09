@@ -9,9 +9,6 @@
 #define OutakeCargo_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
-
-using namespace frc;
 
 class OutakeCargo : public CommandBase {
  public:

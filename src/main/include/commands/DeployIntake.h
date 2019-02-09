@@ -9,9 +9,6 @@
 #define DeployIntake_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
-
-using namespace frc;
 
 class DeployIntake : public CommandBase {
  public:

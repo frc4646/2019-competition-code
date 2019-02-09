@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef GoToGuideLine_H
+#define GoToGuideLine_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class GoToGuideLine : public frc::Command {
+class GoToGuideLine : public CommandBase {
  public:
   GoToGuideLine();
   void Initialize() override;
@@ -18,3 +19,4 @@ class GoToGuideLine : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif

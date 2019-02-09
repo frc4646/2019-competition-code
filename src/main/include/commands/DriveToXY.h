@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DriveToXY_H
+#define DriveToXY_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class DriveToXY : public frc::Command {
+class DriveToXY : public CommandBase {
  public:
   DriveToXY(double x, double y, double h);
   void Initialize() override;
@@ -18,3 +19,4 @@ class DriveToXY : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif
