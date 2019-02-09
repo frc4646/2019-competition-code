@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef GrabberTiltDown_H
+#define GrabberTiltDown_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
 
 class GrabberTiltDown : public CommandBase {
@@ -18,8 +18,5 @@ class GrabberTiltDown : public CommandBase {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
-
-private:
-  double target = 0;
-  int direction = 0; //either 1 or -1
 };
+#endif

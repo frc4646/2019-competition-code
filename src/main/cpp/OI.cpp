@@ -8,14 +8,17 @@
 #include "OI.h"
 
 #include <frc/WPILib.h>
-#include <commands/TiltUp.h>
-#include <commands/TiltDown.h>
 #include <commands/IntakeCargo.h>
 #include <commands/OutakeCargo.h>
 #include <commands/StoreIntake.h>
 #include <commands/DeployIntake.h>
+<<<<<<< HEAD
 #include <commands/DeployClimb.h>
 #include <commands/StoreClimb.h>
+=======
+#include <commands/GrabberTiltUp.h>
+#include <commands/GrabberTiltDown.h>
+>>>>>>> f4b0057b8631edc401f5452c4460c5f659a16a2a
 
 using namespace frc;
 using namespace wpi;
@@ -33,8 +36,8 @@ OI::OI() :
   SlamDown = new JoystickButton(&mechJoystick, 11);
   SlamUp = new JoystickButton(&mechJoystick, 12);
 
-  upTilt->WhenPressed(new TiltUp());
-  downTilt->WhenPressed(new TiltDown());
+  upTilt->WhenPressed(new GrabberTiltUp());
+  downTilt->WhenPressed(new GrabberTiltDown());
   intakeCargo->WhenPressed(new IntakeCargo());
   outakeCargo->WhenPressed(new OutakeCargo());
   SlamUp->WhenPressed(new StoreClimb());

@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef ReleaseCargo_H
+#define ReleaseCargo_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class ReleaseCargo : public CommandBase {
  public:
@@ -22,3 +19,4 @@ class ReleaseCargo : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

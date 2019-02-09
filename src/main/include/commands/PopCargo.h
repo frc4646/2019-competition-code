@@ -5,11 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef DriveCommandTeleop_H
+#define DriveCommandTeleop_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
+#include <frc/WPILib.h>
 
-class PopCargo : public frc::Command {
+class PopCargo : public CommandBase {
  public:
   PopCargo();
   void Initialize() override;
@@ -18,3 +20,4 @@ class PopCargo : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif

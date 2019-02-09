@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef ReleaseHatch_H
+#define ReleaseHatch_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class ReleaseHatch : public CommandBase {
  public:
@@ -22,3 +19,4 @@ class ReleaseHatch : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

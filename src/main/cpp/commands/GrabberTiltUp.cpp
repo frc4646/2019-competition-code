@@ -24,11 +24,15 @@ void GrabberTiltUp::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool GrabberTiltUp::IsFinished() { return false; }
+bool GrabberTiltUp::IsFinished() {
+  return grab->IsArmTiltedUp();
+}
 
 // Called once after isFinished returns true
 void GrabberTiltUp::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void GrabberTiltUp::Interrupted() {}
+void GrabberTiltUp::Interrupted() {
+  End();
+}

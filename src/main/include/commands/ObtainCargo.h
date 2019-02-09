@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef ObtainCargo_H
+#define ObtainCargo_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class ObtainCargo : public CommandBase {
  public:
@@ -22,3 +19,4 @@ class ObtainCargo : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif
