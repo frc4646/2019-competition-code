@@ -7,7 +7,7 @@
 
 #include "commands/StoreClimb.h"
 
-StoreClimb::StoreClimb() {
+StoreClimb::StoreClimb() : CommandBase("StoreClimb") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) slam.get());
