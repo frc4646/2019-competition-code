@@ -35,12 +35,12 @@ void IntakeControl::Execute() {
   
   if (oi->GetMechJoystickButton11()) //For intake cylinder up.
   {
-    intake->SetCylinderPosition(true, true);
+    intake->CylinderPositionUp();
   }
   if (oi->GetMechJoystickButton12()) //For intake cylinder down.
   {
     Wait(0.25); //Waits for grabber.
-    intake->SetCylinderPosition(false, false);
+    intake->CylinderPositionDown();
   }
 }
 

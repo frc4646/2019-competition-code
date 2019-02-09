@@ -5,17 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef DeployIntake_H
-#define DeployIntake_H
+#ifndef IntakeCargo_H
+#define IntakeCargo_H
 
 #include <CommandBase.h>
 #include <frc/WPILib.h>
 
 using namespace frc;
 
-class DeployIntake : public CommandBase {
+class IntakeCargo : public CommandBase {
  public:
-  DeployIntake();
+  IntakeCargo();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

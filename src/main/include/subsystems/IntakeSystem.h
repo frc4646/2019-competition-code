@@ -18,12 +18,14 @@ class IntakeSystem : public Subsystem {
   // for methods that implement subsystem capabilities
   Spark * leftIntake;
   Spark * rightIntake;
-  Solenoid * leftIntakeCylinder;
-  Solenoid * rightIntakeCylinder;
+  DoubleSolenoid * leftIntakeCylinder;
+  DoubleSolenoid * rightIntakeCylinder;
 
  public:
   IntakeSystem();
   void InitDefaultCommand() override;
   void SetIntakeSpeed(double leftSpeed, double rightSpeed);
-  void SetCylinderPosition(bool leftPosition, bool rightPosition);
+  void CylinderPositionUp();
+  void CylinderPositionDown();
+  void CylinderPositionOff();
 };

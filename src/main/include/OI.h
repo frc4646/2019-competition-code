@@ -31,5 +31,10 @@ private:
     Joystick leftJoystick;
     Joystick rightJoystick;
     Joystick mechJoystick;
-    Joystick* joy;
+    JoystickButton* upTilt;
+    JoystickButton* downTilt;
+    JoystickButton* intakeCargo;
+    JoystickButton* outakeCargo;
+    JoystickButton* storeIntake;
+    JoystickButton* deployIntake;
 };

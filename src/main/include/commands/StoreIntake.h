@@ -5,11 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef StoreIntake_H
+#define StoreIntake_H
 
-#include <frc/commands/Command.h>
+#include <CommandBase.h>
+#include <frc/WPILib.h>
 
-class StoreIntake : public frc::Command {
+using namespace frc;
+
+class StoreIntake : public CommandBase {
  public:
   StoreIntake();
   void Initialize() override;
@@ -18,3 +22,4 @@ class StoreIntake : public frc::Command {
   void End() override;
   void Interrupted() override;
 };
+#endif

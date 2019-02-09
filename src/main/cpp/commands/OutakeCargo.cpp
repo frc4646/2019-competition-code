@@ -5,38 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/DeployIntake.h"
+#include "commands/OutakeCargo.h"
 
-DeployIntake::DeployIntake() {
+OutakeCargo::OutakeCargo() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  // Requires Intake subsystem 
   Requires((frc::Subsystem*) intake.get());
 }
 
 // Called just before this Command runs the first time
-void DeployIntake::Initialize() {
-
-}
+void OutakeCargo::Initialize() {
+  }
 
 // Called repeatedly when this Command is scheduled to run
-void DeployIntake::Execute() {
-  // Put intake outside of chassis when cargo is wanted
-  intake->CylinderPositionDown();
+void OutakeCargo::Execute() {
+  intake->SetIntakeSpeed(-0.5, -0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DeployIntake::IsFinished() { 
-  return false; 
-}
+bool OutakeCargo::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void DeployIntake::End() {
-  intake->CylinderPositionOff();
+void OutakeCargo::End() {
+  intake->SetIntakeSpeed(0, 0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DeployIntake::Interrupted() {
+void OutakeCargo::Interrupted() {
   End();
 }

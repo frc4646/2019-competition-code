@@ -10,7 +10,10 @@
 #include <frc/WPILib.h>
 #include <commands/TiltUp.h>
 #include <commands/TiltDown.h>
-
+#include <commands/IntakeCargo.h>
+#include <commands/OutakeCargo.h>
+#include <commands/StoreIntake.h>
+#include <commands/DeployIntake.h>
 
 using namespace frc;
 using namespace wpi;
@@ -21,12 +24,19 @@ OI::OI() :
   rightJoystick(1),
   mechJoystick(2)
 {
-  Joystick* joy = new Joystick(2);
-  JoystickButton* upTilt = new JoystickButton(joy, 1);
-  JoystickButton* downTilt = new JoystickButton(joy, 2);
+  upTilt = new JoystickButton(&mechJoystick, 7);
+  downTilt = new JoystickButton(&mechJoystick, 8);
+  intakeCargo = new JoystickButton(&mechJoystick, 9);
+  outakeCargo = new JoystickButton(&mechJoystick, 10);
+  storeIntake = new JoystickButton(&mechJoystick, 11);
+  deployIntake = new JoystickButton(&mechJoystick, 12);
+
   upTilt->WhenPressed(new TiltUp());
   downTilt->WhenPressed(new TiltDown());
-
+  intakeCargo->WhenPressed(new IntakeCargo());
+  outakeCargo->WhenPressed(new OutakeCargo());
+  storeIntake->WhenPressed(new StoreIntake());
+  deployIntake->WhenPressed(new DeployIntake());
 }
 
 double OI::GetLeftJoystickY()
@@ -39,12 +49,14 @@ double OI::GetRightJoystickY()
   return rightJoystick.GetRawAxis(2);
 }
 
-bool OI::GetMechJoystickButton7() //For Lift up
+//The methods below are for reference, may not be used.
+
+bool OI::GetMechJoystickButton7() //For Tilt up
 {
-  return mechJoystick.GetRawButtonPressed(7);
+    return mechJoystick.GetRawButtonPressed(7);
 }
 
-bool OI::GetMechJoystickButton8() //For Lift down
+bool OI::GetMechJoystickButton8() //For Tilt down
 {
   return mechJoystick.GetRawButtonPressed(8);
 }

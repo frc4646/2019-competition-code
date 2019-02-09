@@ -13,8 +13,8 @@ IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {
   leftIntake = new Spark(0);
   rightIntake = new Spark(1);
 
-  leftIntakeCylinder = new Solenoid(0);
-  rightIntakeCylinder = new Solenoid(1);
+  leftIntakeCylinder = new DoubleSolenoid(4, 5);
+  rightIntakeCylinder = new DoubleSolenoid(6, 7);
 
   rightIntake->SetInverted(true);
 } //Example port numbers
@@ -32,7 +32,15 @@ void IntakeSystem::SetIntakeSpeed(double leftSpeed, double rightSpeed) {
   rightIntake->Set(rightSpeed);
 }
 
-void IntakeSystem::SetCylinderPosition(bool leftPosition, bool rightPosition){
-  leftIntakeCylinder->Set(leftPosition);
-  rightIntakeCylinder->Set(rightPosition);
+void IntakeSystem::CylinderPositionUp(){
+  leftIntakeCylinder->Set(DoubleSolenoid::Value::kForward);
+  rightIntakeCylinder->Set(DoubleSolenoid::Value::kForward);
+}
+void IntakeSystem::CylinderPositionDown(){
+  leftIntakeCylinder->Set(DoubleSolenoid::Value::kReverse);
+  rightIntakeCylinder->Set(DoubleSolenoid::Value::kReverse);
+}
+void IntakeSystem::CylinderPositionOff(){
+  leftIntakeCylinder->Set(DoubleSolenoid::Value::kOff);
+  rightIntakeCylinder->Set(DoubleSolenoid::Value::kOff);
 }
