@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef GrabberTiltUp_H
+#define GrabberTiltUp_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
 
 class GrabberTiltUp : public CommandBase {
@@ -19,3 +19,4 @@ class GrabberTiltUp : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

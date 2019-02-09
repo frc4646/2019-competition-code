@@ -21,15 +21,19 @@ void ReleaseHatch::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void ReleaseHatch::Execute() {
   //Close Grabber to release hatch.
-  grab->CloseHatch();
-  }
+  grab->CloseGrabber();
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool ReleaseHatch::IsFinished() { return false; }
+bool ReleaseHatch::IsFinished() { 
+  return grab->IsGrabberClosed();
+}
 
 // Called once after isFinished returns true
 void ReleaseHatch::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ReleaseHatch::Interrupted() {}
+void ReleaseHatch::Interrupted() {
+  End();
+}

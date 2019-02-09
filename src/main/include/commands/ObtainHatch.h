@@ -5,13 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef ObtainHatch_H
+#define ObtainHatch_H
 
-#include <frc/commands/Command.h>
 #include <CommandBase.h>
-
-using namespace frc;
-using namespace wpi;
 
 class ObtainHatch : public CommandBase {
  public:
@@ -22,3 +19,4 @@ class ObtainHatch : public CommandBase {
   void End() override;
   void Interrupted() override;
 };
+#endif

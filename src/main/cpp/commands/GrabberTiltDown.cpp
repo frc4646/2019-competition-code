@@ -19,19 +19,16 @@ void GrabberTiltDown::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void GrabberTiltDown::Execute() {
-  //Position Based
   grab->TiltDown();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool GrabberTiltDown::IsFinished() { 
-  return false;
+  return grab->IsArmTiltedDown();
 }
 
 // Called once after isFinished returns true
-void GrabberTiltDown::End() {
-  
-}
+void GrabberTiltDown::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

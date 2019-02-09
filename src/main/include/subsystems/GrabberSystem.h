@@ -17,17 +17,24 @@ class GrabberSystem : public Subsystem {
   // It's desirable that everything possible under private except
   // for methods that implement subsystem
   //linear actuator
-  Servo * grabber;
+  DoubleSolenoid * grabber;
   DoubleSolenoid * armTilt;
+  DoubleSolenoid * popper;
 
  public:
   GrabberSystem();
   void InitDefaultCommand() override;
-  void OpenHatch(); //opens grabber to hold hatch
-  void CloseHatch(); //closes grabber to release hatch
-  void OpenCargo(); //opens grabber to release cargo
-  void CloseCargo(); //opens grabber to hold cargo
-  void SetPosition(double position); //For TeleOp
-  void TiltDown(); //Tilts Grabber down
+  void OpenGrabber(); //opens grabber to hold hatch
+  void CloseGrabber(); //closes grabber to release hatch
   void TiltUp(); //Tilts Grabber down
+  void TiltDown(); //Tilts Grabber down
+  void PopperOut(); //Pop Cargo
+  void PopperIn(); //Cargo goes back in
+
+  bool IsGrabberOpen();
+  bool IsGrabberClosed();
+  bool IsArmTiltedUp();
+  bool IsArmTiltedDown();
+  bool IsPopperOut();
+  bool IsPopperIn();
 };

@@ -13,8 +13,8 @@ IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {
   leftIntake = new Spark(0);
   rightIntake = new Spark(1);
 
-  leftIntakeCylinder = new DoubleSolenoid(4, 5);
-  rightIntakeCylinder = new DoubleSolenoid(6, 7);
+  leftIntakeCylinder = new DoubleSolenoid(6, 7);
+  rightIntakeCylinder = new DoubleSolenoid(8, 9);
 
   rightIntake->SetInverted(true);
 } //Example port numbers
