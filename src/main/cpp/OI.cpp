@@ -9,6 +9,8 @@
 
 #include <frc/WPILib.h>
 #include <commands/TiltUp.h>
+#include <commands/TiltDown.h>
+
 
 using namespace frc;
 using namespace wpi;
@@ -21,7 +23,10 @@ OI::OI() :
 {
   Joystick* joy = new Joystick(2);
   JoystickButton* upTilt = new JoystickButton(joy, 1);
+  JoystickButton* downTilt = new JoystickButton(joy, 2);
   upTilt->WhenPressed(new TiltUp());
+  downTilt->WhenPressed(new TiltDown());
+
 }
 
 double OI::GetLeftJoystickY()
@@ -36,7 +41,7 @@ double OI::GetRightJoystickY()
 
 bool OI::GetMechJoystickButton7() //For Lift up
 {
-    return mechJoystick.GetRawButtonPressed(7);
+  return mechJoystick.GetRawButtonPressed(7);
 }
 
 bool OI::GetMechJoystickButton8() //For Lift down
