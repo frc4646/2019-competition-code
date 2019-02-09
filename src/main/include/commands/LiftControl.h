@@ -9,9 +9,14 @@
 #define LiftControl_H
 
 #include <CommandBase.h>
-#include <frc/WPILib.h>
 
 class LiftControl : public CommandBase {
+ private:
+  const double minValue = 0.1; //any joystick reading between -minPower and minPower will not affect lift power (lift will hold)
+  double liftPower;
+  double slope;
+  double power;
+
  public:
   LiftControl();
   void Initialize() override;

@@ -28,7 +28,6 @@ void LiftToHeight::Initialize() {
     lift->LiftAtSpeed(0.5);
     bool isLiftHigher = false;
   }
-  
 
 }
 
@@ -60,4 +59,6 @@ void LiftToHeight::End() {
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void LiftToHeight::Interrupted() {}
+void LiftToHeight::Interrupted() {
+  End();
+}

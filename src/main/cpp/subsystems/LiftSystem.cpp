@@ -13,6 +13,7 @@ void LiftSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
   liftMotor = new Spark(0);
+  LiftStringPotPin = new AnalogInput(0);
 }
 
 void LiftSystem::LiftAtSpeed(double speed){
@@ -20,9 +21,17 @@ void LiftSystem::LiftAtSpeed(double speed){
 }
 double LiftSystem::GetHeight(){
   //stringpot->GetUrHeightYouStupidStringpot; //do mathessss
+  pinVoltage = LiftStringPotPin->GetVoltage(); //the current voltage from the string pot
+
+  m = (MinHeight - MaxHeight) / (double)(MinValue - MaxValue);
+	b = MinHeight - ((MinValue)*(m));
+
+	height = ((m)*(pinVoltage)) + b;
+
+  return height;
 }
 void LiftSystem::HoldHeight(){
-  liftMotor->Set(0.1);
+  liftMotor->Set(HoldPower);
 }
 
 // Put methods for controlling this subsystem

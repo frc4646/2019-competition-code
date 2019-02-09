@@ -9,6 +9,7 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
+#include <frc/AnalogInput.h>
 
 using namespace frc;
 
@@ -17,6 +18,15 @@ class LiftSystem : public Subsystem {
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
   Spark * liftMotor;
+  AnalogInput* LiftStringPotPin;
+  double height;
+  double pinVoltage;
+  double m;
+  double b;
+  const double MinHeight = 0.0; //minimum height of the lift, inches
+	const double MaxHeight = 74.0; //maximum height of the lift, inches
+	const double MinValue = 1.39; //the voltage of the stringpot at MinHeight
+	const double MaxValue = 4.125; //the voltage of the stringpot at MaxHeight
 
  public:
   LiftSystem();
@@ -24,4 +34,8 @@ class LiftSystem : public Subsystem {
   void LiftAtSpeed(double speed);
   double GetHeight();
   void HoldHeight();
+  const double HoldPower = 0.1;
+  const double MaxPower = 0.8; 
+  const double MinPower = -0.5;
+  
 };

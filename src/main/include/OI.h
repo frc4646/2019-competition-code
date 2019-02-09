@@ -17,15 +17,15 @@ public:
   OI();
   double GetLeftJoystickY();
   double GetRightJoystickY();
+  double GetMechJoystickY(); //For the lift
 
-  bool GetMechJoystickButton7(); //For Lift up
-  bool GetMechJoystickButton8(); //For Lift down
-  bool GetMechJoystickButton9(); //For intake intake
-  bool GetMechJoystickButton10(); //For outake intake
+  bool GetMechJoystickButton7(); //For Tilt up
+  bool GetMechJoystickButton8(); //For Tilt down
+  bool GetMechJoystickButton9(); //For storing intake
+  bool GetMechJoystickButton10(); //For deploying intake
   bool GetMechJoystickButton11(); //For intake cylinder and grabber up.
   bool GetMechJoystickButton12(); //For intake cylinder and grabber down.
-  double GetMechJoystickThrottle(); //For the lift.
-  bool GetMechJoystickButton1(); //For the lift.
+  //bool GetMechJoystickButton1();
 
 private:
     Joystick leftJoystick;

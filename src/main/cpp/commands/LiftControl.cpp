@@ -7,7 +7,7 @@
 
 #include "commands/LiftControl.h"
 
-LiftControl::LiftControl() {
+LiftControl::LiftControl() : CommandBase("LiftControl"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) lift.get());
@@ -20,22 +20,33 @@ void LiftControl::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftControl::Execute() {
-  if (oi->GetMechJoystickButton1())
+  if (oi->GetMechJoystickY() > minValue) //if the joystick value is greater than the positive min
   {
-    lift->LiftAtSpeed(oi->GetMechJoystickThrottle());
+    slope = (lift->MaxPower - lift->HoldPower)/(1.0 - minValue);
+    power = slope * (oi->GetMechJoystickY() - 1.0) + lift->MaxPower;
+  }
+  else if (oi->GetMechJoystickY() < -minValue) //if the joystick value is less than the negative min
+  {
+    slope = (lift->MinPower - lift->HoldPower)/(minValue - 1.0);
+    power = slope * (oi->GetMechJoystickY() + 1.0) + lift->MinPower;
   }
   else
   {
-    lift->HoldHeight();
+    power = lift->HoldPower;
   }
+  lift->LiftAtSpeed(power);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool LiftControl::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void LiftControl::End() {}
+void LiftControl::End() {
+  lift->HoldHeight();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void LiftControl::Interrupted() {}
+void LiftControl::Interrupted() {
+  End();
+}
