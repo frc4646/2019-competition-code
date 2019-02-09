@@ -19,30 +19,7 @@ void IntakeControl::Initialize() {
 }
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeControl::Execute() {
-  if (oi->GetMechJoystickButton9()) //Intake intake.
-  {
-    intake->SetIntakeSpeed(0.5, 0.5);
-  }
-  else if (oi->GetMechJoystickButton10()) //Outake intake.
-  {
-    intake->SetIntakeSpeed(-0.5, -0.5);
-  }
-  else
-  {
-    intake->SetIntakeSpeed(0.0, 0.0);
-  }
-  
-  if (oi->GetMechJoystickButton11()) //For intake cylinder up.
-  {
-    intake->CylinderPositionUp();
-  }
-  if (oi->GetMechJoystickButton12()) //For intake cylinder down.
-  {
-    Wait(0.25); //Waits for grabber.
-    intake->CylinderPositionDown();
-  }
-}
+void IntakeControl::Execute() {}
 
 // Make this return true when this Command no longer needs to run execute()
 bool IntakeControl::IsFinished() { return false; }

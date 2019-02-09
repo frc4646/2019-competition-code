@@ -35,6 +35,4 @@ private:
     JoystickButton* downTilt;
     JoystickButton* intakeCargo;
     JoystickButton* outakeCargo;
-    JoystickButton* storeIntake;
-    JoystickButton* deployIntake;
 };
