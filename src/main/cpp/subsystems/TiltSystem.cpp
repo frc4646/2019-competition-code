@@ -8,7 +8,7 @@
 #include "subsystems/TiltSystem.h"
 
 TiltSystem::TiltSystem() : Subsystem("TiltSystem") {
-  armTilt = new DoubleSolenoid{0, 1};
+  armTilt = new DoubleSolenoid(0, 1);
 }
 
 void TiltSystem::InitDefaultCommand() {

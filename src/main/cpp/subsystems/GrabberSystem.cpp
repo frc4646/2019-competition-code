@@ -13,6 +13,7 @@ void GrabberSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
   grabber = new Servo(0);
+  armTilt = new DoubleSolenoid(0, 1);
 }
 
 // Put methods for controlling this subsystem
@@ -30,6 +31,13 @@ void GrabberSystem::OpenCargo(){
 } 
 void GrabberSystem::CloseCargo(){
   grabber->Set(0.2);
+} 
+void GrabberSystem::TiltUp(){
+  armTilt->Set(frc::DoubleSolenoid::Value::kForward);
+} 
+
+void GrabberSystem::TiltDown(){
+  armTilt->Set(frc::DoubleSolenoid::Value::kReverse);
 } 
 
 void GrabberSystem::SetPosition(double position){ //For tele-op

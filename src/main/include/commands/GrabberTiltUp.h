@@ -8,8 +8,9 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class GrabberTiltUp : public frc::Command {
+class GrabberTiltUp : public CommandBase {
  public:
   GrabberTiltUp();
   void Initialize() override;

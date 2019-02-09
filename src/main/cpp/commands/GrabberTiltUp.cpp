@@ -11,6 +11,7 @@ GrabberTiltUp::GrabberTiltUp() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //Requires tilt subsystem.
+  Requires((frc::Subsystem*) grab.get());
   //Assumes popper is not extended.
 }
 
@@ -19,16 +20,7 @@ void GrabberTiltUp::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void GrabberTiltUp::Execute() {
-  //Time Based: (Better for Tele-Op)
-    //Tilt up at inputed power.
-    //Sleep for a certain amount of milliseconds.
-    //Stop tilting down.
-
-  //Position Based: (Better for Autonomous)
-    //Set target position to inputed position.
-    //Check position of tilt subsystem.
-    //If tilt position is not at target position, stop. Else:
-    //Set tilt position to inputed position.
+  grab->TiltUp();
 }
 
 // Make this return true when this Command no longer needs to run execute()

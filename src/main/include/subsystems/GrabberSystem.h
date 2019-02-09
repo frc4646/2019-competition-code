@@ -18,6 +18,7 @@ class GrabberSystem : public Subsystem {
   // for methods that implement subsystem
   //linear actuator
   Servo * grabber;
+  DoubleSolenoid * armTilt;
 
  public:
   GrabberSystem();
@@ -27,4 +28,6 @@ class GrabberSystem : public Subsystem {
   void OpenCargo(); //opens grabber to release cargo
   void CloseCargo(); //opens grabber to hold cargo
   void SetPosition(double position); //For TeleOp
+  void TiltDown(); //Tilts Grabber down
+  void TiltUp(); //Tilts Grabber down
 };

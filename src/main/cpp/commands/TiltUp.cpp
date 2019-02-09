@@ -10,17 +10,18 @@
 TiltUp::TiltUp() : CommandBase("TiltUp"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires((frc::Subsystem*) tilt.get());
+  Requires((frc::Subsystem*) grab.get());
 
 }
 
 // Called just before this Command runs the first time
 void TiltUp::Initialize() {
-  tilt->Tilt(frc::DoubleSolenoid::Value::kForward);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TiltUp::Execute() {}
+void TiltUp::Execute() {
+  grab->TiltUp();
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool TiltUp::IsFinished() { 
@@ -29,7 +30,6 @@ bool TiltUp::IsFinished() {
 
 // Called once after isFinished returns true
 void TiltUp::End() {
-  tilt->Tilt(frc::DoubleSolenoid::Value::kOff);
 }
 
 // Called when another command which requires one or more of the same

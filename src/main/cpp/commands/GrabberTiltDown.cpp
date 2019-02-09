@@ -10,7 +10,7 @@
 GrabberTiltDown::GrabberTiltDown() : CommandBase("GrabberTiltDown") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires(tilt.get());
+  Requires((frc::Subsystem*) grab.get());
   //Assumes popper is not extended.
 }
 
@@ -19,26 +19,18 @@ void GrabberTiltDown::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void GrabberTiltDown::Execute() {
-  //Position Based: (Better for Autonomous)
-  tilt->Tilt(DoubleSolenoid::Value::kReverse);
-
+  //Position Based
+  grab->TiltDown();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool GrabberTiltDown::IsFinished() { 
-  //finished when current angle equals target angle
-  if(tilt->getAngle() <= (target + tilt->getTolerance())){
-    return true;
-  }
-  else {
-    return false; 
-  }
-    
+  return false;
 }
 
 // Called once after isFinished returns true
 void GrabberTiltDown::End() {
-  tilt->off();
+  
 }
 
 // Called when another command which requires one or more of the same
