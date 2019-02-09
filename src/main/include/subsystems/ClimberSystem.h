@@ -21,6 +21,10 @@ class ClimberSystem : public Subsystem {
  public:
   ClimberSystem();
   void InitDefaultCommand() override;
-  void SlamWheelDown();
+  
   void SlamWheelUp();
+  void SlamWheelDown();
+
+  bool IsSlamWheelUp();
+  bool IsSlamWheelDown();
 };

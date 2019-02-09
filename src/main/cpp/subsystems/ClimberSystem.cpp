@@ -20,5 +20,27 @@ void ClimberSystem::SlamWheelUp() {
 void ClimberSystem::SlamWheelDown() { 
   slamWheel->Set(frc::DoubleSolenoid::Value::kForward);
 }
+
+bool ClimberSystem::IsSlamWheelUp() {
+  if (slamWheel->Get() == DoubleSolenoid::Value::kReverse)
+  {
+    return true;
+  }
+  else
+  {
+    return false;   
+  }
+}
+
+bool ClimberSystem::IsSlamWheelDown() {
+  if (slamWheel->Get() == DoubleSolenoid::Value::kForward)
+  {
+    return true;
+  }
+  else
+  {
+    return false;   
+  }
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

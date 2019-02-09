@@ -45,10 +45,24 @@ void IntakeSystem::CylinderPositionOff(){
   rightIntakeCylinder->Set(DoubleSolenoid::Value::kOff);
 }
 bool IntakeSystem::IsIntakeStored(){
-  return (leftIntakeCylinder->Get() == DoubleSolenoid::Value::kForward && 
-          rightIntakeCylinder->Get() == DoubleSolenoid::Value::kForward);
+  if (leftIntakeCylinder->Get() == DoubleSolenoid::Value::kForward && 
+          rightIntakeCylinder->Get() == DoubleSolenoid::Value::kForward)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 bool IntakeSystem::IsIntakeDeployed(){
-  return (leftIntakeCylinder->Get() == DoubleSolenoid::Value::kReverse&& 
-          rightIntakeCylinder->Get() == DoubleSolenoid::Value::kReverse);
+  if (leftIntakeCylinder->Get() == DoubleSolenoid::Value::kReverse && 
+          rightIntakeCylinder->Get() == DoubleSolenoid::Value::kReverse)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
