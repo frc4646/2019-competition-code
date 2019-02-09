@@ -28,15 +28,11 @@ OI::OI() :
   downTilt = new JoystickButton(&mechJoystick, 8);
   intakeCargo = new JoystickButton(&mechJoystick, 9);
   outakeCargo = new JoystickButton(&mechJoystick, 10);
-  storeIntake = new JoystickButton(&mechJoystick, 11);
-  deployIntake = new JoystickButton(&mechJoystick, 12);
 
   upTilt->WhenPressed(new GrabberTiltUp());
   downTilt->WhenPressed(new GrabberTiltDown());
   intakeCargo->WhenPressed(new IntakeCargo());
   outakeCargo->WhenPressed(new OutakeCargo());
-  storeIntake->WhenPressed(new StoreIntake());
-  deployIntake->WhenPressed(new DeployIntake());
 }
 
 double OI::GetLeftJoystickY()
