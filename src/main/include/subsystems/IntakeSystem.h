@@ -28,4 +28,6 @@ class IntakeSystem : public Subsystem {
   void CylinderPositionUp();
   void CylinderPositionDown();
   void CylinderPositionOff();
+  bool IsIntakeStored();
+  bool IsIntakeDeployed();
 };

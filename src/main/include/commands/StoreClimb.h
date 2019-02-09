@@ -5,21 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef IntakeControl_H
-#define IntakeControl_H
+#pragma once
 
+#include <frc/commands/Command.h>
 #include <CommandBase.h>
-#include <frc/WPILib.h>
 
-using namespace frc;
-
-class IntakeControl : public CommandBase {
+class StoreClimb : public CommandBase {
  public:
-  IntakeControl();
+  StoreClimb();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
 };
-#endif

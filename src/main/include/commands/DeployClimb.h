@@ -8,8 +8,9 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <CommandBase.h>
 
-class DeployClimb : public frc::Command {
+class DeployClimb : public CommandBase {
  public:
   DeployClimb();
   void Initialize() override;

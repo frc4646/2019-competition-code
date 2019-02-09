@@ -27,7 +27,7 @@ void DeployIntake::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool DeployIntake::IsFinished() { 
-  return false; 
+  return intake->IsIntakeDeployed(); 
 }
 
 // Called once after isFinished returns true

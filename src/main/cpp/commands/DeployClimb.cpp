@@ -10,6 +10,8 @@
 DeployClimb::DeployClimb() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  Requires((frc::Subsystem*) slam.get());
+
   //requires climber subsystem
 }
 
@@ -19,6 +21,7 @@ void DeployClimb::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void DeployClimb::Execute() {
   //deploy the climber out (towards the ground) to drive onto hab levels 2 and 3
+  slam->SlamWheelDown();
 }
 
 // Make this return true when this Command no longer needs to run execute()

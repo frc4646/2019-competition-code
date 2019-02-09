@@ -14,6 +14,8 @@
 #include <commands/OutakeCargo.h>
 #include <commands/StoreIntake.h>
 #include <commands/DeployIntake.h>
+#include <commands/DeployClimb.h>
+#include <commands/StoreClimb.h>
 
 using namespace frc;
 using namespace wpi;
@@ -28,11 +30,15 @@ OI::OI() :
   downTilt = new JoystickButton(&mechJoystick, 8);
   intakeCargo = new JoystickButton(&mechJoystick, 9);
   outakeCargo = new JoystickButton(&mechJoystick, 10);
+  SlamDown = new JoystickButton(&mechJoystick, 11);
+  SlamUp = new JoystickButton(&mechJoystick, 12);
 
   upTilt->WhenPressed(new TiltUp());
   downTilt->WhenPressed(new TiltDown());
   intakeCargo->WhenPressed(new IntakeCargo());
   outakeCargo->WhenPressed(new OutakeCargo());
+  SlamUp->WhenPressed(new StoreClimb());
+  SlamDown->WhenPressed(new DeployClimb());
 }
 
 double OI::GetLeftJoystickY()

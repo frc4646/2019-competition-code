@@ -5,30 +5,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/IntakeControl.h"
+#include "commands/StoreClimb.h"
 
-IntakeControl::IntakeControl() : CommandBase("IntakeControl") {
+StoreClimb::StoreClimb() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  Requires((frc::Subsystem*) intake.get());
+  Requires((frc::Subsystem*) slam.get());
 }
 
 // Called just before this Command runs the first time
-void IntakeControl::Initialize() {
-  intake->SetIntakeSpeed(0.0, 0.0);
-}
+void StoreClimb::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeControl::Execute() {}
+void StoreClimb::Execute() {
+  slam->SlamWheelUp();
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool IntakeControl::IsFinished() { return false; }
+bool StoreClimb::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void IntakeControl::End() {
-  intake->SetIntakeSpeed(0.0, 0.0);
-}
+void StoreClimb::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void IntakeControl::Interrupted() {}
+void StoreClimb::Interrupted() {}

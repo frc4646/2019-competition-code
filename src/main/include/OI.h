@@ -35,4 +35,6 @@ private:
     JoystickButton* downTilt;
     JoystickButton* intakeCargo;
     JoystickButton* outakeCargo;
+    JoystickButton* SlamDown;
+    JoystickButton* SlamUp;
 };
