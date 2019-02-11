@@ -7,14 +7,17 @@
 
 #include "subsystems/GrabberSystem.h"
 
-GrabberSystem::GrabberSystem() : Subsystem("GrabberSystem") {}
+GrabberSystem::GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin grabberTiltForward, 
+    SolenoidPin grabberTiltReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse) : Subsystem("GrabberSystem") {
+  grabber = new DoubleSolenoid(grabberForward, grabberReverse);
+  armTilt = new DoubleSolenoid(grabberTiltForward, grabberTiltReverse);
+  popper = new DoubleSolenoid(popperForward, popperReverse);
+}
 
 void GrabberSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  grabber = new DoubleSolenoid(0, 1);
-  armTilt = new DoubleSolenoid(2, 3);
-  popper = new DoubleSolenoid(4, 5);
+  
 }
 
 // Put methods for controlling this subsystem

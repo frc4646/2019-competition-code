@@ -34,6 +34,7 @@
 
 #include "CommandBase.h"
 #include <frc/Commands/Scheduler.h>
+
 /*
 #include <subsystems/TankDriveSystem.h>
 #include <subsystems/LiftSystem.h>
@@ -59,10 +60,10 @@ CommandBase::CommandBase(const std::string &name) :
 }
 
 void CommandBase::init() {
-	drivetrain.reset(new TankDriveSystem());
-  lift.reset(new LiftSystem());
-  grab.reset(new GrabberSystem());
-  intake.reset(new IntakeSystem());
+	drivetrain.reset(new TankDriveSystem(DRIVETRAIN_INIT_PARAMS));
+  lift.reset(new LiftSystem(LIFT_INIT_PARAMS));
+  grab.reset(new GrabberSystem(GRABBER_INIT_PARAMS));
+  intake.reset(new IntakeSystem(INTAKE_INIT_PARAMS));
   percept.reset(new PerceptionSystem());
-  slam.reset(new ClimberSystem());
+  slam.reset(new ClimberSystem(CLIMBER_INIT_PARAMS));
 }

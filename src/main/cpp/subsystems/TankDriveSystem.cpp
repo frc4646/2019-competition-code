@@ -11,14 +11,16 @@
 
 using namespace frc;
 
-TankDriveSystem::TankDriveSystem() : Subsystem("drivetrain") {
-  frontLeft = new WPI_TalonSRX(0);
-  frontRight = new WPI_TalonSRX(1);
-  backLeft = new WPI_VictorSPX(2);
-  backRight = new WPI_VictorSPX(3);
+TankDriveSystem::TankDriveSystem(MotorPin frontLeftPin, MotorPin frontRightPin, 
+    MotorPin backLeftPin, MotorPin backRightPin) : Subsystem("drivetrain") {
+  frontLeft = new WPI_TalonSRX(frontLeftPin);
+  frontRight = new WPI_TalonSRX(frontRightPin);
+  backLeft = new WPI_VictorSPX(backLeftPin);
+  backRight = new WPI_VictorSPX(backRightPin);
   
   frontRight->SetInverted(true);
   backRight->SetInverted(true);
+
 }
 
 void TankDriveSystem::InitDefaultCommand() {

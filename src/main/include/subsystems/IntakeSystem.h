@@ -9,6 +9,7 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
+#include <PinEnums.h>
 
 using namespace frc;
 
@@ -22,7 +23,8 @@ class IntakeSystem : public Subsystem {
   DoubleSolenoid * rightIntakeCylinder;
 
  public:
-  IntakeSystem();
+  IntakeSystem(MotorPin intakeMotorPin, SolenoidPin rightIntakeForward, 
+    SolenoidPin rightIntakeReverse, SolenoidPin leftIntakeForward, SolenoidPin leftIntakeReverse);
   void InitDefaultCommand() override;
   void SetIntakeSpeed(double leftSpeed, double rightSpeed);
   void CylinderPositionUp();

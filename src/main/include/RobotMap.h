@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+#include <PinEnums.h>
 #pragma once
 
 /**
@@ -23,3 +23,9 @@
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
+
+//not exactly sure this is how it works -Stella 2/09/19
+constexpr MotorPin frontleft = M0;
+constexpr MotorPin frontright = M1;
+constexpr MotorPin backleft = M2;
+constexpr MotorPin backright = M3;

@@ -9,12 +9,13 @@
 
 using namespace frc;
 
-IntakeSystem::IntakeSystem() : Subsystem("IntakeSystem") {
-  leftIntake = new Spark(0);
-  rightIntake = new Spark(1);
+IntakeSystem::IntakeSystem(MotorPin intakeMotorPin, SolenoidPin rightIntakeForward, 
+    SolenoidPin rightIntakeReverse, SolenoidPin leftIntakeForward, SolenoidPin leftIntakeReverse) : Subsystem("IntakeSystem") {
+  leftIntake = new Spark(intakeMotorPin);
+  rightIntake = new Spark(intakeMotorPin);
 
-  leftIntakeCylinder = new DoubleSolenoid(6, 7);
-  rightIntakeCylinder = new DoubleSolenoid(8, 9);
+  leftIntakeCylinder = new DoubleSolenoid(leftIntakeForward, leftIntakeReverse);
+  rightIntakeCylinder = new DoubleSolenoid(rightIntakeForward, rightIntakeReverse);
 
   rightIntake->SetInverted(true);
 } //Example port numbers

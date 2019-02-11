@@ -10,6 +10,7 @@
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
 #include <frc/AnalogInput.h>
+#include <PinEnums.h>
 
 using namespace frc;
 
@@ -23,13 +24,15 @@ class LiftSystem : public Subsystem {
   double pinVoltage;
   double m;
   double b;
+
+  //below will be edited with testing; currently are the values from last year.
   const double MinHeight = 0.0; //minimum height of the lift, inches
 	const double MaxHeight = 74.0; //maximum height of the lift, inches
 	const double MinValue = 1.39; //the voltage of the stringpot at MinHeight
 	const double MaxValue = 4.125; //the voltage of the stringpot at MaxHeight
 
  public:
-  LiftSystem();
+  LiftSystem(MotorPin liftMotorPin, AnalogPin stringPotPin);
   void InitDefaultCommand() override;
   void LiftAtSpeed(double speed);
   double GetHeight();

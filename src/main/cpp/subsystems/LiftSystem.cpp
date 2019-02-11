@@ -6,23 +6,27 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/LiftSystem.h"
+#include <commands/LiftControl.h>
 
-LiftSystem::LiftSystem() : Subsystem("LiftSystem") {}
+LiftSystem::LiftSystem(MotorPin liftMotorPin, AnalogPin stringPotPin) : Subsystem("LiftSystem") {
+  liftMotor = new Spark(liftMotorPin);
+  LiftStringPotPin = new AnalogInput(stringPotPin);
+}
 
 void LiftSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  liftMotor = new Spark(0);
-  LiftStringPotPin = new AnalogInput(0);
+  SetDefaultCommand(new LiftControl());
 }
 
 void LiftSystem::LiftAtSpeed(double speed){
   liftMotor->Set(speed);
 }
-double LiftSystem::GetHeight(){
-  //stringpot->GetUrHeightYouStupidStringpot; //do mathessss
-  pinVoltage = LiftStringPotPin->GetVoltage(); //the current voltage from the string pot
 
+double LiftSystem::GetHeight(){
+  pinVoltage = LiftStringPotPin->GetVoltage(); //the current voltage from the string pot
+  
+  //this below converts volts into inches
   m = (MinHeight - MaxHeight) / (double)(MinValue - MaxValue);
 	b = MinHeight - ((MinValue)*(m));
 
@@ -30,6 +34,7 @@ double LiftSystem::GetHeight(){
 
   return height;
 }
+
 void LiftSystem::HoldHeight(){
   liftMotor->Set(HoldPower);
 }

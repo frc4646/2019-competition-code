@@ -16,6 +16,8 @@
 using namespace frc;
 
 #include "OI.h"
+#include "PinEnums.h"
+#include "Config.h"
 
 #include <subsystems/TankDriveSystem.h>
 #include <subsystems/LiftSystem.h>

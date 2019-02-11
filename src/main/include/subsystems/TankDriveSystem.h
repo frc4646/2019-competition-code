@@ -11,6 +11,7 @@
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
 #include <ctre/Phoenix.h>
+#include <PinEnums.h>
 
 using namespace frc;
 
@@ -24,7 +25,8 @@ class TankDriveSystem : public Subsystem {
   WPI_VictorSPX * backRight;
 
  public:
-  TankDriveSystem();
+  TankDriveSystem(MotorPin frontLeftPin, MotorPin frontRightPin, 
+    MotorPin backLeftPin, MotorPin backRightPin);
   void InitDefaultCommand() override;
   void SetDriveSpeed(double leftSpeed, double rightSpeed);
 };

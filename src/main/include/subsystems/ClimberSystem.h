@@ -9,6 +9,7 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
+#include <PinEnums.h>
 
 using namespace frc;
 
@@ -19,7 +20,7 @@ class ClimberSystem : public Subsystem {
   DoubleSolenoid * slamWheel;
 
  public:
-  ClimberSystem();
+  ClimberSystem(SolenoidPin2 climberForward, SolenoidPin2 climberReverse);
   void InitDefaultCommand() override;
   
   void SlamWheelUp();

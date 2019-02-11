@@ -7,12 +7,14 @@
 
 #include "subsystems/ClimberSystem.h"
 
-ClimberSystem::ClimberSystem() : Subsystem("ClimberSystem") {}
+ClimberSystem::ClimberSystem(SolenoidPin2 climberForward, SolenoidPin2 climberReverse) : Subsystem("ClimberSystem") {
+  slamWheel = new DoubleSolenoid(climberForward, climberReverse);
+}
 
 void ClimberSystem::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  slamWheel = new DoubleSolenoid(0, 1);
+  
 }
 void ClimberSystem::SlamWheelUp() {
   slamWheel->Set(frc::DoubleSolenoid::Value::kReverse);

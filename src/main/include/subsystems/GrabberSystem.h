@@ -9,6 +9,7 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
+#include <PinEnums.h>
 
 using namespace frc;
 
@@ -22,7 +23,8 @@ class GrabberSystem : public Subsystem {
   DoubleSolenoid * popper;
 
  public:
-  GrabberSystem();
+  GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin grabberTiltForward, 
+      SolenoidPin grabberTiltReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse);
   void InitDefaultCommand() override;
   void OpenGrabber(); //opens grabber to hold hatch
   void CloseGrabber(); //closes grabber to release hatch
