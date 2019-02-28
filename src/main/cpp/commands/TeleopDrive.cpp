@@ -25,7 +25,7 @@ void TeleopDrive::Initialize() {
 void TeleopDrive::Execute() {
   // Set left drive to left joystick.
   // Set right drive to right joystick.
-  drivetrain->SetDriveSpeed(oi->GetLeftJoystickY(), oi->GetRightJoystickY());
+  drivetrain->SetDriveSpeed(-oi->GetLeftJoystickY(), -oi->GetRightJoystickY());
 }
 
 // Make this return true when this Command no longer needs to run execute()

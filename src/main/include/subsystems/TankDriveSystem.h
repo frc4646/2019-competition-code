@@ -19,14 +19,13 @@ class TankDriveSystem : public Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
-  WPI_TalonSRX * frontLeft;
+  WPI_VictorSPX * frontLeft;
   WPI_TalonSRX * frontRight;
-  WPI_VictorSPX * backLeft;
+  WPI_TalonSRX * backLeft;
   WPI_VictorSPX * backRight;
 
  public:
-  TankDriveSystem(MotorPin frontLeftPin, MotorPin frontRightPin, 
-    MotorPin backLeftPin, MotorPin backRightPin);
+  TankDriveSystem();
   void InitDefaultCommand() override;
   void SetDriveSpeed(double leftSpeed, double rightSpeed);
 };

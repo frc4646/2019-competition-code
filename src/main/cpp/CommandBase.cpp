@@ -60,7 +60,7 @@ CommandBase::CommandBase(const std::string &name) :
 }
 
 void CommandBase::init() {
-	drivetrain.reset(new TankDriveSystem(DRIVETRAIN_INIT_PARAMS));
+	drivetrain.reset(new TankDriveSystem());
   lift.reset(new LiftSystem(LIFT_INIT_PARAMS));
   grab.reset(new GrabberSystem(GRABBER_INIT_PARAMS));
   intake.reset(new IntakeSystem(INTAKE_INIT_PARAMS));

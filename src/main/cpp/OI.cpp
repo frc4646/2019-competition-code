@@ -43,17 +43,17 @@ OI::OI() :
 
 double OI::GetLeftJoystickY()
 {
-  return leftJoystick.GetRawAxis(2);
+  return leftJoystick.GetRawAxis(1);
 }
 
 double OI::GetRightJoystickY()
 {
-  return rightJoystick.GetRawAxis(2);
+  return rightJoystick.GetRawAxis(1);
 }
 
 double OI::GetMechJoystickY()
 {
-  return mechJoystick.GetRawAxis(2);
+  return mechJoystick.GetRawAxis(1);
 }
 
 //The methods below are for reference, may not be used.
