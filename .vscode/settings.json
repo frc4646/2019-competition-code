@@ -57,6 +57,9 @@
     "thread": "cpp",
     "type_traits": "cpp",
     "tuple": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "bitset": "cpp",
+    "iostream": "cpp",
+    "numeric": "cpp"
   }
 }
