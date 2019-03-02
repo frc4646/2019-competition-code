@@ -19,24 +19,18 @@ class GrabberSystem : public Subsystem {
   // for methods that implement subsystem
   //linear actuator
   DoubleSolenoid * grabber;
-  DoubleSolenoid * armTilt;
   DoubleSolenoid * popper;
 
  public:
-  GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin grabberTiltForward, 
-      SolenoidPin grabberTiltReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse);
+  GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse);
   void InitDefaultCommand() override;
   void OpenGrabber(); //opens grabber to hold hatch
   void CloseGrabber(); //closes grabber to release hatch
-  void TiltUp(); //Tilts Grabber down
-  void TiltDown(); //Tilts Grabber down
   void PopperOut(); //Pop Cargo
   void PopperIn(); //Cargo goes back in
 
   bool IsGrabberOpen();
   bool IsGrabberClosed();
-  bool IsArmTiltedUp();
-  bool IsArmTiltedDown();
   bool IsPopperOut();
   bool IsPopperIn();
 };

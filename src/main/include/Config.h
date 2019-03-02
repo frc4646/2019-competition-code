@@ -38,12 +38,9 @@ const SolenoidPin rightIntakeReverse = S1;
 const SolenoidPin leftIntakeForward = S2;
 const SolenoidPin leftIntakeReverse = S3;
 
-#define GRABBER_INIT_PARAMS grabberForward, grabberReverse, grabberTiltForward, grabberTiltReverse, popperForward, popperReverse
+#define GRABBER_INIT_PARAMS grabberForward, grabberReverse, popperForward, popperReverse
 const SolenoidPin grabberForward = S4;
 const SolenoidPin grabberReverse = S5;
-
-const SolenoidPin grabberTiltForward = S6;
-const SolenoidPin grabberTiltReverse = S7;
 
 const SolenoidPin2 popperForward = P0;
 const SolenoidPin2 popperReverse = P1;

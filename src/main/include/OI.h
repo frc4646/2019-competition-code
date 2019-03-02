@@ -19,8 +19,8 @@ public:
   double GetRightJoystickY();
   double GetMechJoystickY(); //For the lift
 
-  bool GetMechJoystickButton7(); //For Tilt up
-  bool GetMechJoystickButton8(); //For Tilt down
+  bool GetMechJoystickButton7(); //Nothing
+  bool GetMechJoystickButton8(); //Nothing
   bool GetMechJoystickButton9(); //For storing intake
   bool GetMechJoystickButton10(); //For deploying intake
   bool GetMechJoystickButton11(); //For intake cylinder and grabber up.
@@ -31,8 +31,6 @@ private:
     Joystick leftJoystick;
     Joystick rightJoystick;
     Joystick mechJoystick;
-    JoystickButton* upTilt;
-    JoystickButton* downTilt;
     JoystickButton* intakeCargo;
     JoystickButton* outakeCargo;
     JoystickButton* SlamDown;

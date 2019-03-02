@@ -7,10 +7,9 @@
 
 #include "subsystems/GrabberSystem.h"
 
-GrabberSystem::GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin grabberTiltForward, 
-    SolenoidPin grabberTiltReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse) : Subsystem("GrabberSystem") {
+GrabberSystem::GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, 
+    SolenoidPin2 popperForward, SolenoidPin2 popperReverse) : Subsystem("GrabberSystem") {
   grabber = new DoubleSolenoid(grabberForward, grabberReverse);
-  armTilt = new DoubleSolenoid(grabberTiltForward, grabberTiltReverse);
   popper = new DoubleSolenoid(popperForward, popperReverse);
 }
 
@@ -31,13 +30,6 @@ void GrabberSystem::CloseGrabber()
 {
   grabber->Set(frc::DoubleSolenoid::Value::kReverse);
 }
-
-void GrabberSystem::TiltUp(){
-  armTilt->Set(frc::DoubleSolenoid::Value::kForward);
-} 
-void GrabberSystem::TiltDown(){
-  armTilt->Set(frc::DoubleSolenoid::Value::kReverse);
-} 
 
 void GrabberSystem::PopperOut()
 {
@@ -62,29 +54,6 @@ bool GrabberSystem::IsGrabberOpen()
 bool GrabberSystem::IsGrabberClosed()
 {
   if (grabber->Get() == DoubleSolenoid::Value::kReverse)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-
-bool GrabberSystem::IsArmTiltedUp()
-{
-  if (armTilt->Get() == DoubleSolenoid::Value::kForward)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-bool GrabberSystem::IsArmTiltedDown()
-{
-  if (armTilt->Get() == DoubleSolenoid::Value::kReverse)
   {
     return true;
   }

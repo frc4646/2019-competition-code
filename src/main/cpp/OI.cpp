@@ -14,8 +14,6 @@
 #include <commands/DeployIntake.h>
 #include <commands/DeployClimb.h>
 #include <commands/StoreClimb.h>
-#include <commands/GrabberTiltUp.h>
-#include <commands/GrabberTiltDown.h>
 
 using namespace frc;
 using namespace wpi;
@@ -26,15 +24,11 @@ OI::OI() :
   rightJoystick(1),
   mechJoystick(2)
 {
-  upTilt = new JoystickButton(&mechJoystick, 7);
-  downTilt = new JoystickButton(&mechJoystick, 8);
   intakeCargo = new JoystickButton(&mechJoystick, 9);
   outakeCargo = new JoystickButton(&mechJoystick, 10);
   SlamDown = new JoystickButton(&mechJoystick, 11);
   SlamUp = new JoystickButton(&mechJoystick, 12);
 
-  upTilt->WhenPressed(new GrabberTiltUp());
-  downTilt->WhenPressed(new GrabberTiltDown());
   intakeCargo->WhenPressed(new IntakeCargo());
   outakeCargo->WhenPressed(new OutakeCargo());
   SlamUp->WhenPressed(new StoreClimb());
@@ -58,12 +52,12 @@ double OI::GetMechJoystickY()
 
 //The methods below are for reference, may not be used.
 
-bool OI::GetMechJoystickButton7() //For Tilt up
+bool OI::GetMechJoystickButton7() //Nothing
 {
-    return mechJoystick.GetRawButtonPressed(7);
+  return mechJoystick.GetRawButtonPressed(7);
 }
 
-bool OI::GetMechJoystickButton8() //For Tilt down
+bool OI::GetMechJoystickButton8() //Nothing
 {
   return mechJoystick.GetRawButtonPressed(8);
 }
