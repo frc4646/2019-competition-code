@@ -14,6 +14,7 @@
 #include <commands/DeployIntake.h>
 #include <commands/DeployClimb.h>
 #include <commands/StoreClimb.h>
+#include <commands/TestEncoder.h>
 
 using namespace frc;
 using namespace wpi;
@@ -28,11 +29,14 @@ OI::OI() :
   outakeCargo = new JoystickButton(&mechJoystick, 10);
   SlamDown = new JoystickButton(&mechJoystick, 11);
   SlamUp = new JoystickButton(&mechJoystick, 12);
+  //FollowCargo = new JoystickButton(&leftJoystick, 7);
+  Test = new JoystickButton(&leftJoystick, 8);
 
   intakeCargo->WhenPressed(new IntakeCargo());
   outakeCargo->WhenPressed(new OutakeCargo());
   SlamUp->WhenPressed(new StoreClimb());
   SlamDown->WhenPressed(new DeployClimb());
+  Test->WhenPressed(new TestEncoder());
 }
 
 double OI::GetLeftJoystickY()
@@ -50,6 +54,11 @@ double OI::GetMechJoystickY()
   return mechJoystick.GetRawAxis(1);
 }
 
+bool OI::GetLeftJoystickButton7()
+{
+  return leftJoystick.GetRawButtonPressed(7);
+}
+
 //The methods below are for reference, may not be used.
 
 bool OI::GetMechJoystickButton7() //Nothing
@@ -57,7 +66,7 @@ bool OI::GetMechJoystickButton7() //Nothing
   return mechJoystick.GetRawButtonPressed(7);
 }
 
-bool OI::GetMechJoystickButton8() //Nothing
+bool OI::GetMechJoystickButton8() //For tests
 {
   return mechJoystick.GetRawButtonPressed(8);
 }

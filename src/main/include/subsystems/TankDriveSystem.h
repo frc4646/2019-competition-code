@@ -28,6 +28,8 @@ class TankDriveSystem : public Subsystem {
   TankDriveSystem();
   void InitDefaultCommand() override;
   void SetDriveSpeed(double leftSpeed, double rightSpeed);
+  void TestEncoders(double num);
+  void Periodic() override;
 };
 
 #endif

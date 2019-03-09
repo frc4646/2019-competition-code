@@ -25,7 +25,7 @@ PixyCamera::PixyCamera() : Subsystem("PixyCamera") {
     
 }
 void PixyCamera::InitDefaultCommand() {
-   SetDefaultCommand(new PixyDemoTrack());
+   //SetDefaultCommand(new PixyDemoTrack());
 }
 
 Pixy2 PixyCamera::getPixy(){

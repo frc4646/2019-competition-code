@@ -25,6 +25,7 @@ public:
   bool GetMechJoystickButton10(); //For deploying intake
   bool GetMechJoystickButton11(); //For intake cylinder and grabber up.
   bool GetMechJoystickButton12(); //For intake cylinder and grabber down.
+  bool GetLeftJoystickButton7(); //For following cargo
   //bool GetMechJoystickButton1();
 
 private:
@@ -35,4 +36,6 @@ private:
     JoystickButton* outakeCargo;
     JoystickButton* SlamDown;
     JoystickButton* SlamUp;
+    JoystickButton* FollowCargo;
+    JoystickButton* Test;
 };
