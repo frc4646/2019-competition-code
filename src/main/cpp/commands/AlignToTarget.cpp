@@ -10,39 +10,48 @@
 AlignToTarget::AlignToTarget() : CommandBase("AlignToTarget"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
-  // Requires Perception Subsystem, Tank Drive Subsystem
-  // Simaliar to Drive to XY
+  // Requires PixyCamera Subsystem, Tank Drive Subsystem
+  Requires((frc::Subsystem*) drivetrain.get());
+  Requires((frc::Subsystem*) pixy.get());
+  Requires((frc::Subsystem*) ultrasonic.get());
 }
 
 // Called just before this Command runs the first time
 void AlignToTarget::Initialize() {
-
+  drivetrain->SetDriveSpeed(0, 0);
+  pixy->trackVisionTarget();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AlignToTarget::Execute() {
-  /*
-  Ask {
-    is Vision Target in view of Pixy2 and/or ultrasonic with in certain distance {
-      if yes {
-        turn tward target 
-        move tward target checking that i am still facing the target
-      } else no {
-        end Align to target
-      }
-    }
+  pixy->trackVisionTarget();
+  
+  float drivespeed;
+  drivespeed = pixy->returnPanValue()/90.0;
+  // turn
+  if (abs(drivespeed) > 0.15)
+  {
+    drivetrain->SetDriveSpeed(-drivespeed,drivespeed);
   }
-  */
+  //else if (pixy->returnWidthValue() < 100 && pixy->returnWidthValue() != 0)
+  else if (ultrasonic->GetDistance() >= MinDist)
+  {
+    drivetrain->SetDriveSpeed(0.3,0.3);
+  }
+  else
+  {
+    drivetrain->SetDriveSpeed(0, 0);
+  }
+  
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AlignToTarget::IsFinished() { 
-  return false; 
+  return ultrasonic->GetDistance() <= MinDist; 
 }
 
 // Called once after isFinished returns true
 void AlignToTarget::End() {
-  //if vision target is not in sight with in certain distance
 }
 
 // Called when another command which requires one or more of the same

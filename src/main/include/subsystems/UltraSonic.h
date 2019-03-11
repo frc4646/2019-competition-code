@@ -5,32 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef DriveTrain_H
-#define DriveTrain_H
+#pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
-#include <ctre/Phoenix.h>
 #include <PinEnums.h>
-
+#include <frc/WPILib.h>
 using namespace frc;
 
-class TankDriveSystem : public Subsystem {
+class UltraSonic : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
-  WPI_VictorSPX * frontLeft;
-  WPI_TalonSRX * frontRight;
-  WPI_TalonSRX * backLeft;
-  WPI_VictorSPX * backRight;
-  double rampRate = 0.05; //value recommended by Fargo Dave
+  AnalogInput UltraSonicPin;
 
  public:
-  TankDriveSystem();
+  UltraSonic(int pin);
   void InitDefaultCommand() override;
-  void SetDriveSpeed(double leftSpeed, double rightSpeed);
-  void TestEncoders(double num);
-  void Periodic() override;
+  double GetDistance();
+  int GetCounts();
 };
-
-#endif

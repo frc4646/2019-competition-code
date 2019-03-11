@@ -5,20 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef AlignToTarget_H
-#define AlignToTarget_H
+#pragma once
 
 #include <CommandBase.h>
 
-class AlignToTarget : public CommandBase {
+class LiftToBottom : public CommandBase {
  public:
-  AlignToTarget();
+  LiftToBottom();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
-private:
-  const double MinDist = 60; //from ultrasonic, in mm
 };
-#endif

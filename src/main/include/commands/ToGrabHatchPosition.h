@@ -5,20 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef AlignToTarget_H
-#define AlignToTarget_H
+#pragma once
 
+#include <frc/commands/CommandGroup.h>
 #include <CommandBase.h>
 
-class AlignToTarget : public CommandBase {
+class ToGrabHatchPosition : public frc::CommandGroup {
  public:
-  AlignToTarget();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
-private:
-  const double MinDist = 60; //from ultrasonic, in mm
+  ToGrabHatchPosition();
 };
-#endif

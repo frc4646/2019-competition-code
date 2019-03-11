@@ -39,5 +39,9 @@ void LiftSystem::HoldHeight(){
   liftMotor->Set(HoldPower);
 }
 
+double LiftSystem::GetMinHeight(){
+  return MinHeight;
+}
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

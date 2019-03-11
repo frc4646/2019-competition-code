@@ -35,24 +35,17 @@
 #include "CommandBase.h"
 #include <frc/Commands/Scheduler.h>
 
-/*
-#include <subsystems/TankDriveSystem.h>
-#include <subsystems/LiftSystem.h>
-#include "subsystems/TiltSystem.h"
-#include "subsystems/GrabberSystem.h"
-*/
-
-
 // Initialize a single static instance of all of your subsystems. The following
 // line should be repeated for each subsystem in the project.
 
-std::unique_ptr<TankDriveSystem> CommandBase::drivetrain = NULL; //std::make_unique<TankDriveSystem>();
+std::unique_ptr<TankDriveSystem> CommandBase::drivetrain = NULL;
 std::unique_ptr<LiftSystem> CommandBase::lift = NULL;
 std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
 std::unique_ptr<IntakeSystem> CommandBase::intake = NULL;
 std::unique_ptr<PerceptionSystem> CommandBase::percept = NULL;
 std::unique_ptr<ClimberSystem> CommandBase::slam = NULL;
 std::unique_ptr<PixyCamera> CommandBase::pixy = NULL;
+std::unique_ptr<UltraSonic> CommandBase::ultrasonic = NULL;
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
 CommandBase::CommandBase(const std::string &name) :
@@ -68,5 +61,5 @@ void CommandBase::init() {
   percept.reset(new PerceptionSystem());
   slam.reset(new ClimberSystem(CLIMBER_INIT_PARAMS));
   pixy.reset(new PixyCamera());
-
+  ultrasonic.reset(new UltraSonic(ULTRASONIC_INIT_PARAMS));
 }

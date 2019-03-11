@@ -20,18 +20,19 @@
 #include "PinEnums.h"
 #include <frc/WPILib.h>
 
-#define DRIVETRAIN_INIT_PARAMS frontLeftPin, frontRightPin, backLeftPin, backRightPin
-const MotorPin frontLeftPin = M0;
+//using talons so no need for pins
+//#define DRIVETRAIN_INIT_PARAMS frontLeftPin, frontRightPin, backLeftPin, backRightPin
+/*const MotorPin frontLeftPin = M0;
 const MotorPin frontRightPin = M1;
 const MotorPin backLeftPin = M2;
-const MotorPin backRightPin = M3;
+const MotorPin backRightPin = M3; */
 
 #define LIFT_INIT_PARAMS liftMotorPin, stringPotPin
-const MotorPin liftMotorPin = M4;
+const MotorPin liftMotorPin = M0;
 const AnalogPin stringPotPin = A0;
 
 #define INTAKE_INIT_PARAMS intakeMotorPin, rightIntakeForward, rightIntakeReverse, leftIntakeForward, leftIntakeReverse
-const MotorPin intakeMotorPin = M5; //for both intake motors
+const MotorPin intakeMotorPin = M4; //for both intake motors
 
 const SolenoidPin rightIntakeForward = S0;
 const SolenoidPin rightIntakeReverse = S1;
@@ -49,6 +50,10 @@ const SolenoidPin2 popperReverse = P1;
 const SolenoidPin2 climberForward = P2;
 const SolenoidPin2 climberReverse = P3;
 
-const int encoderTicksPreRevolution = 1; //will have to test for later
+#define ULTRASONIC_INIT_PARAMS ultrasonicPin
+
+const AnalogPin ultrasonicPin = A1;
+
+const int encoderTicksPerRevolution = 1; //will have to test for later
 
 #endif

@@ -31,6 +31,12 @@ TankDriveSystem::TankDriveSystem() : Subsystem("drivetrain") {
   backLeft->Config_kP(0, 10, 0);
   frontRight->Config_kF(0, 5, 0);
 
+  //it will take rampRate seconds to go from neutral to set power,
+  //making drivetrain move smoother
+  backLeft->ConfigOpenloopRamp(rampRate, 0);
+  frontRight->ConfigOpenloopRamp(rampRate, 0);
+
+
 }
 
 void TankDriveSystem::InitDefaultCommand() {

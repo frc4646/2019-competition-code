@@ -8,7 +8,7 @@
 #include "commands/TestEncoder.h"
 #include <subsystems/TankDriveSystem.h>
 
-TestEncoder::TestEncoder() {
+TestEncoder::TestEncoder() : CommandBase("TestEncoder"){
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   Requires((frc::Subsystem*) drivetrain.get());

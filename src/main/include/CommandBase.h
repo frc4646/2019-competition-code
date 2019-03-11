@@ -26,6 +26,7 @@ using namespace frc;
 #include <subsystems/PerceptionSystem.h>
 #include <subsystems/ClimberSystem.h>
 #include <vision/PixyCamera.h>
+#include <subsystems/UltraSonic.h>
 
 
 /**
@@ -49,6 +50,7 @@ public:
 	static std::unique_ptr<PerceptionSystem> percept;
 	static std::unique_ptr<ClimberSystem> slam;
 	static std::unique_ptr<PixyCamera> pixy;
+	static std::unique_ptr<UltraSonic> ultrasonic;
 	static std::unique_ptr<OI> oi;
 
 };

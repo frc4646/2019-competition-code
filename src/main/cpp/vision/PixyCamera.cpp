@@ -32,12 +32,12 @@ Pixy2 PixyCamera::getPixy(){
     return pixy;
 }
 
-// Take the biggest block (blocks[0]) that's been around for at least 30 frames (1/2 second)
+// Take the blockNum-th block (blocks[blockNum]) that's been around for at least 30 frames (1/2 second)
 // and return its index, otherwise return -1
-int16_t PixyCamera::acquireBlock()
+int16_t PixyCamera::acquireBlock(int blockNum)
 {
-  if (pixy.ccc.numBlocks && pixy.ccc.blocks[0].m_age>30)
-    return pixy.ccc.blocks[0].m_index;
+  if (pixy.ccc.numBlocks > blockNum && pixy.ccc.blocks[blockNum].m_age>30)
+    return pixy.ccc.blocks[blockNum].m_index;
 
   return -1;
 }
@@ -66,7 +66,7 @@ Block PixyCamera::trackOrangeBall(){
     
     pixy.ccc.getBlocks(false, 1, 1);
     if (index == -1){
-        index = acquireBlock();
+        index = acquireBlock(0);
     }
     // If we've found a block, find it, track it
     if (index>=0)
@@ -107,8 +107,58 @@ Block PixyCamera::trackOrangeBall(){
 }
 
 Block PixyCamera::trackVisionTarget(){
-    // use ccc program to track objects
-    pixy.changeProg("line");
+  // use ccc program to track objects
+  pixy.changeProg("line");
+  //two pieces of tape to track
+  Block *block1 = NULL;
+  Block *block2 = NULL;
+  int32_t panOffset, tiltOffset;
+  
+  pixy.ccc.getBlocks(false, 1, 2);
+  if (index == -1){
+    index = acquireBlock(0);
+  }
+  // If we've found the first block, find it, track it
+  if (index>=0)
+    block1 = trackBlock(index);
+    //printf("Found target!");
+  
+    index = acquireBlock(1);
+  // After we've found the second block, find it, track it
+  if (index>=0)
+    block2 = trackBlock(index);
+  
+  if (block1 && block2)
+  {   
+    panOffset = (int32_t)pixy.frameWidth/2 - ((int32_t)block1->m_x + (int32_t)block2->m_x)/2;
+    tiltOffset = (int32_t)block1->m_y - (int32_t)pixy.frameHeight/2;  
+
+    panLoop->update(panOffset);
+    tiltLoop->update(tiltOffset);
+  
+    pan->Set(panLoop->m_command/1000.0);
+    tilt->Set(tiltLoop->m_command/1000.0);
+
+    //block->print();
+    //tilt->Set(.5);
+    //printf("Pan: %f \n", panLoop->m_command/1000.0);
+    //printf("Tilt: %f \n", tiltLoop->m_command/1000.0);
+    //pixy.setServos(panLoop->m_command, tiltLoop->m_command);
+    width = block1->m_width;
+    height = block1->m_height;
+  }
+  else // no object detected, go into reset state
+  {
+    panLoop->reset();
+    tiltLoop->reset();
+    //pixy.setServos(panLoop->m_command, tiltLoop->m_command);
+    pan->Set(0.5);
+    tilt->Set(0.5);
+    index = -1;
+    width = NULL;
+    height = NULL;
+    //printf("no object \n");
+  }
 }
 
 

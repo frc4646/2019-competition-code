@@ -30,7 +30,7 @@ class PixyCamera : public Subsystem {
   Pixy2 getPixy();
   Block trackOrangeBall();
   Block trackVisionTarget();
-  int16_t acquireBlock();
+  int16_t acquireBlock(int blockNum);
   Block *trackBlock(uint8_t ind);
   int16_t index;
   PIDLoop *panLoop;
