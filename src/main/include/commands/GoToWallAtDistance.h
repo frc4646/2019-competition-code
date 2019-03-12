@@ -11,6 +11,9 @@
 #include <CommandBase.h>
 
 class GoToWallAtDistance : public CommandBase {
+ private:
+  const double RequiredDistanceMillimeters = 304.8; //Equal to 12 inches
+  const double DriveSpeed = 0.5f; //Probably Need to Change
  public:
   GoToWallAtDistance();
   void Initialize() override;

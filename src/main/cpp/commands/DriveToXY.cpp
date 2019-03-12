@@ -10,10 +10,13 @@
 DriveToXY::DriveToXY(double x, double y, double h) : CommandBase("DriveToXY"){
   //pass in 3 doubles, x and y (+x goes to the right, +y goes forward) 
   //and h (end heading, direction robot faces at end)
-
+  driveX = x;
+  driveY = y;
+  driveH = h;
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //Requires drivetrain
+  Requires((frc::Subsystem*) drivetrain.get());
 }
 
 // Called just before this Command runs the first time
@@ -31,6 +34,9 @@ void DriveToXY::Execute() {
     3. rotate to end heading
       angle = 90 + theta
     */
+  driveTheta = atan(driveX/driveY);
+  driveDistance = sqrt(driveX*driveX + driveY*driveY);
+  driveAngle = 90 + driveTheta;
 }
 
 // Make this return true when this Command no longer needs to run execute()

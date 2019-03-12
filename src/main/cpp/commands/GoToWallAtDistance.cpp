@@ -11,6 +11,8 @@ GoToWallAtDistance::GoToWallAtDistance() : CommandBase("GoToWallAtDistance") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   //Requires Tank Drive Subsystem and Perception Subsystem
+  Requires((frc::Subsystem*) drivetrain.get());
+  Requires((frc::Subsystem*) ultrasonic.get());
 }
 
 // Called just before this Command runs the first time
@@ -21,17 +23,24 @@ void GoToWallAtDistance::Execute() {
   //double stopDistancePerceptedInches = 12.0;
   //If wall is greater then stopDistancePerceptedInches away continuously drive using drive train, 
   //else override and stop drivetrain motors.
+  if (RequiredDistanceMillimeters >= ultrasonic->GetDistance() && ultrasonic->GetDistance() != NULL)
+  {
+    drivetrain->SetDriveSpeed(DriveSpeed, DriveSpeed);
+  }
+  else
+  {
+    drivetrain->SetDriveSpeed(0, 0);
+  }
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool GoToWallAtDistance::IsFinished() { 
-  //Stop Driving.
-  return false; 
+  return (RequiredDistanceMillimeters <= ultrasonic->GetDistance() || ultrasonic->GetDistance() == NULL);
 }
 
 // Called once after isFinished returns true
 void GoToWallAtDistance::End() {
-  //Stop Driving.
+  drivetrain->SetDriveSpeed(0, 0);
 }
 
 // Called when another command which requires one or more of the same

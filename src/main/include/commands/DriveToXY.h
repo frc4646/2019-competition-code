@@ -11,6 +11,13 @@
 #include <CommandBase.h>
 
 class DriveToXY : public CommandBase {
+ private:
+  double driveTheta;
+  double driveDistance;
+  double driveAngle;
+  double driveX;
+  double driveY;
+  double driveH;
  public:
   DriveToXY(double x, double y, double h);
   void Initialize() override;
