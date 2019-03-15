@@ -8,7 +8,7 @@
 #include "subsystems/GrabberSystem.h"
 
 GrabberSystem::GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, 
-    SolenoidPin2 popperForward, SolenoidPin2 popperReverse) : Subsystem("GrabberSystem") {
+    SolenoidPin popperForward, SolenoidPin popperReverse) : Subsystem("GrabberSystem") {
   grabber = new DoubleSolenoid(grabberForward, grabberReverse);
   popper = new DoubleSolenoid(popperForward, popperReverse);
 }

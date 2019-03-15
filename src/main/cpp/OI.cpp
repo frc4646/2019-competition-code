@@ -8,10 +8,10 @@
 #include "OI.h"
 
 #include <frc/WPILib.h>
-#include <commands/IntakeCargo.h>
-#include <commands/OutakeCargo.h>
-#include <commands/StoreIntake.h>
-#include <commands/DeployIntake.h>
+//#include <commands/IntakeCargo.h>
+//#include <commands/OutakeCargo.h>
+//#include <commands/StoreIntake.h>
+//#include <commands/DeployIntake.h>
 #include <commands/ReleaseCargo.h>
 #include <commands/ObtainCargo.h>
 #include <commands/DeployClimb.h>
@@ -28,10 +28,10 @@ OI::OI() :
   rightJoystick(1),
   mechJoystick(2)
 {
-  intakeCargo = new JoystickButton(&mechJoystick, 11);
-  outakeCargo = new JoystickButton(&mechJoystick, 9);
-  IntakeDeploy = new JoystickButton(&mechJoystick, 10);
-  IntakeStore = new JoystickButton(&mechJoystick, 12);
+  //intakeCargo = new JoystickButton(&mechJoystick, 11);
+  //outakeCargo = new JoystickButton(&mechJoystick, 9);
+  //IntakeDeploy = new JoystickButton(&mechJoystick, 10);
+  //IntakeStore = new JoystickButton(&mechJoystick, 12);
   GrabberOpen = new JoystickButton(&mechJoystick, 5);
   GrabberClose = new JoystickButton(&mechJoystick, 3);
   SlamDown = new JoystickButton(&rightJoystick, 7);
@@ -39,10 +39,10 @@ OI::OI() :
   //FollowCargo = new JoystickButton(&rightJoystick, 5);
   //Test = new JoystickButton(&mechJoystick, 8);
 
-  intakeCargo->WhenPressed(new IntakeCargo());
-  outakeCargo->WhenPressed(new OutakeCargo());
-  IntakeDeploy->WhenPressed(new DeployIntake());
-  IntakeStore->WhenPressed(new StoreIntake());
+  //intakeCargo->WhenPressed(new IntakeCargo());
+  //outakeCargo->WhenPressed(new OutakeCargo());
+  //IntakeDeploy->WhenPressed(new DeployIntake());
+  //IntakeStore->WhenPressed(new StoreIntake());
   GrabberOpen->WhenPressed(new ReleaseCargo());
   GrabberClose->WhenPressed(new ObtainCargo());
   SlamUp->WhenPressed(new StoreClimb());

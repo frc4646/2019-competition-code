@@ -43,12 +43,12 @@ const SolenoidPin leftIntakeReverse = S3;
 const SolenoidPin grabberForward = S4;
 const SolenoidPin grabberReverse = S5;
 
-const SolenoidPin2 popperForward = P0;
-const SolenoidPin2 popperReverse = P1;
+const SolenoidPin popperForward = S0;
+const SolenoidPin popperReverse = S1;
 
 #define CLIMBER_INIT_PARAMS climberForward, climberReverse
-const SolenoidPin2 climberForward = P2;
-const SolenoidPin2 climberReverse = P3;
+const SolenoidPin climberForward = S2;
+const SolenoidPin climberReverse = S3;
 
 #define ULTRASONIC_INIT_PARAMS ultrasonicPin
 

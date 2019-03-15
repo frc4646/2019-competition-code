@@ -20,7 +20,7 @@ class ClimberSystem : public Subsystem {
   DoubleSolenoid * slamWheel;
 
  public:
-  ClimberSystem(SolenoidPin2 climberForward, SolenoidPin2 climberReverse);
+  ClimberSystem(SolenoidPin climberForward, SolenoidPin climberReverse);
   void InitDefaultCommand() override;
   
   void SlamWheelUp();
