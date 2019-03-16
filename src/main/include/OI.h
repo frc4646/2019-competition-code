@@ -45,6 +45,9 @@ private:
   JoystickButton* GrabberClose;
   JoystickButton* SlamUp;
   JoystickButton* SlamDown;
+  JoystickButton* LiftLevel1;
+  JoystickButton* LiftLevel2;
+  JoystickButton* LiftLevel3;
 
   JoystickButton* FollowCargo;
   JoystickButton* Test;

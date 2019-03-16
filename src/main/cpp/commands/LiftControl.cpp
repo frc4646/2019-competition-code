@@ -20,6 +20,7 @@ void LiftControl::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftControl::Execute() {
+  frc::SmartDashboard::PutNumber("Lift height in inches", lift->GetHeight());
   if (oi->GetMechJoystickY() > minValue) //if the joystick value is greater than the positive min
   {
     slope = (lift->MaxPower - lift->HoldPower)/(1.0 - minValue);

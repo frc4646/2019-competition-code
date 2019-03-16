@@ -60,10 +60,11 @@ void TankDriveSystem::TestEncoders(double num) {
 }
 
 void TankDriveSystem::Periodic() {
-  frc::SmartDashboard::PutNumber("velocity_left", backLeft->GetSelectedSensorVelocity(0));
+  /*frc::SmartDashboard::PutNumber("velocity_left", backLeft->GetSelectedSensorVelocity(0));
   frc::SmartDashboard::PutNumber("velocity_right", frontRight->GetSelectedSensorVelocity(0));
   frc::SmartDashboard::PutNumber("error_L", backLeft->GetClosedLoopError(0));
   frc::SmartDashboard::PutNumber("error_R", frontRight->GetClosedLoopError(0));
+  */
 }
 
 // Put methods for controlling this subsystem

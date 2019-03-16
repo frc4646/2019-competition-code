@@ -12,12 +12,14 @@
 //#include <commands/OutakeCargo.h>
 //#include <commands/StoreIntake.h>
 //#include <commands/DeployIntake.h>
-#include <commands/ReleaseCargo.h>
+#include <commands/PopCargo.h>
 #include <commands/ObtainCargo.h>
 #include <commands/DeployClimb.h>
 #include <commands/StoreClimb.h>
 #include <commands/PixyDemoTrack.h>
 #include <commands/TestEncoder.h>
+#include <commands/LiftToHeight.h>
+#include <RobotMap.h>
 
 using namespace frc;
 using namespace wpi;
@@ -34,6 +36,9 @@ OI::OI() :
   //IntakeStore = new JoystickButton(&mechJoystick, 12);
   GrabberOpen = new JoystickButton(&mechJoystick, 5);
   GrabberClose = new JoystickButton(&mechJoystick, 3);
+  LiftLevel1 = new JoystickButton(&mechJoystick, 12);
+  LiftLevel2 = new JoystickButton(&mechJoystick, 10);
+  LiftLevel3 = new JoystickButton(&mechJoystick, 8);
   SlamDown = new JoystickButton(&rightJoystick, 7);
   SlamUp = new JoystickButton(&rightJoystick, 6);
   //FollowCargo = new JoystickButton(&rightJoystick, 5);
@@ -43,8 +48,11 @@ OI::OI() :
   //outakeCargo->WhenPressed(new OutakeCargo());
   //IntakeDeploy->WhenPressed(new DeployIntake());
   //IntakeStore->WhenPressed(new StoreIntake());
-  GrabberOpen->WhenPressed(new ReleaseCargo());
+  GrabberOpen->WhenPressed(new PopCargo());
   GrabberClose->WhenPressed(new ObtainCargo());
+  LiftLevel1->WhenPressed(new LiftToHeight(liftLevel1));
+  LiftLevel2->WhenPressed(new LiftToHeight(liftLevel2));
+  LiftLevel3->WhenPressed(new LiftToHeight(liftLevel3));
   SlamUp->WhenPressed(new StoreClimb());
   SlamDown->WhenPressed(new DeployClimb());
   //FollowCargo->WhenPressed(new PixyDemoTrack());

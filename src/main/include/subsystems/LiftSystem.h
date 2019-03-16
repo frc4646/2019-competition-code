@@ -26,10 +26,10 @@ class LiftSystem : public Subsystem {
   double b;
 
   //below will be edited with testing; currently are the values from last year.
-  const double MinHeight = 0.2; //minimum height of the lift, inches
-	const double MaxHeight = 74.0; //maximum height of the lift, inches
-	const double MinValue = 1.39; //the voltage of the stringpot at MinHeight
-	const double MaxValue = 4.125; //the voltage of the stringpot at MaxHeight
+  const double MinHeight = 10.5; //minimum height of the lift, inches
+	const double MaxHeight = 85.25; //maximum height of the lift, inches
+	const double MinValue = 1.475; //the voltage of the stringpot at MinHeight
+	const double MaxValue = 3.43; //the voltage of the stringpot at MaxHeight
 
  public:
   LiftSystem(MotorPin liftMotorPin, AnalogPin stringPotPin);
@@ -38,7 +38,10 @@ class LiftSystem : public Subsystem {
   double GetHeight();
   void HoldHeight();
   double GetMinHeight();
-  const double HoldPower = 0.15;
+  const double HoldPower = 0.2;
   const double MaxPower = 0.8; 
   const double MinPower = -0.5;
+  const double level1 = 19;
+  const double level2 = 47;
+  const double level3 = 75;
 };

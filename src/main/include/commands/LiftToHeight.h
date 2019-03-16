@@ -14,6 +14,7 @@ class LiftToHeight : public CommandBase {
   private:
   double dist;
   bool isLiftHigher;
+  double tolerance = 0.5;
   public:
   LiftToHeight(double distance);
   void Initialize() override;

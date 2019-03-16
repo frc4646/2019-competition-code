@@ -29,3 +29,6 @@ constexpr MotorPin frontleft = M0;
 constexpr MotorPin frontright = M1;
 constexpr MotorPin backleft = M2;
 constexpr MotorPin backright = M3;
+  const double liftLevel1 = 19;
+  const double liftLevel2 = 47;
+  const double liftLevel3 = 75;
