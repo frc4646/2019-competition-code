@@ -31,8 +31,9 @@ const MotorPin backRightPin = M3; */
 const MotorPin liftMotorPin = M0;
 const AnalogPin stringPotPin = A0;
 
-#define INTAKE_INIT_PARAMS intakeMotorPin, rightIntakeForward, rightIntakeReverse, leftIntakeForward, leftIntakeReverse
-const MotorPin intakeMotorPin = M4; //for both intake motors
+#define INTAKE_INIT_PARAMS intakeSlidePin, intakeMotorPin
+const MotorPin intakeMotorPin = M4;
+const MotorPin intakeSlidePin = M5; //for both intake motors
 
 const SolenoidPin rightIntakeForward = S0;
 const SolenoidPin rightIntakeReverse = S1;

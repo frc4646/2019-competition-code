@@ -41,7 +41,7 @@
 std::unique_ptr<TankDriveSystem> CommandBase::drivetrain = NULL;
 std::unique_ptr<LiftSystem> CommandBase::lift = NULL;
 std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
-std::unique_ptr<IntakeSystem> CommandBase::intake = NULL;
+std::unique_ptr<NEWIntakeSystem> CommandBase::intake = NULL;
 std::unique_ptr<PerceptionSystem> CommandBase::percept = NULL;
 std::unique_ptr<ClimberSystem> CommandBase::slam = NULL;
 std::unique_ptr<PixyCamera> CommandBase::pixy = NULL;
@@ -57,7 +57,7 @@ void CommandBase::init() {
 	drivetrain.reset(new TankDriveSystem());
   lift.reset(new LiftSystem(LIFT_INIT_PARAMS));
   grab.reset(new GrabberSystem(GRABBER_INIT_PARAMS));
-  //intake.reset(new IntakeSystem(INTAKE_INIT_PARAMS));
+  intake.reset(new NEWIntakeSystem(INTAKE_INIT_PARAMS));
   percept.reset(new PerceptionSystem());
   slam.reset(new ClimberSystem(CLIMBER_INIT_PARAMS));
   //pixy.reset(new PixyCamera());
