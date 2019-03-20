@@ -21,14 +21,8 @@ LiftToHeight::LiftToHeight(double distance) : CommandBase("LiftToHeight") {
 void LiftToHeight::Initialize() {
   //Commanding lift subsystem on at a certain power
   printf("Initialize %f\n", dist);
-}
-
-// Called repeatedly when this Command is scheduled to run
-void LiftToHeight::Execute() {
-  // Don't do anything here since we are using a constant power
-  // If overshoot becomes an issue, maybe make a basic P loop here?
-  printf("Execute");
-  if (lift->GetHeight() > dist){
+  //put the below code in initialize so joystick movement will override the command (will still run IsFinished and End)
+   if (lift->GetHeight() > dist){
     lift->LiftAtSpeed(-0.2);
     isLiftHigher = true;
   }
@@ -36,6 +30,13 @@ void LiftToHeight::Execute() {
     lift->LiftAtSpeed(0.4);
     isLiftHigher = false;
   }
+}
+
+// Called repeatedly when this Command is scheduled to run
+void LiftToHeight::Execute() {
+  // Don't do anything here since we are using a constant power
+  // If overshoot becomes an issue, maybe make a basic P loop here?
+  printf("Execute");
 }
 
 // Make this return true when this Command no longer needs to run execute()

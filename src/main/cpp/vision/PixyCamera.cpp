@@ -64,7 +64,7 @@ Block PixyCamera::trackOrangeBall(){
     int32_t panOffset, tiltOffset;
     
     
-    pixy.ccc.getBlocks(false, 1, 1);
+    pixy.ccc.getBlocks(false, 2, 1);
     if (index == -1){
         index = acquireBlock(0);
     }
@@ -108,7 +108,6 @@ Block PixyCamera::trackOrangeBall(){
 
 Block PixyCamera::trackVisionTarget(){
   // use ccc program to track objects
-  pixy.changeProg("line");
   //two pieces of tape to track
   Block *block1 = NULL;
   Block *block2 = NULL;

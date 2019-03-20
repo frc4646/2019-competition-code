@@ -37,10 +37,10 @@ private:
   Joystick rightJoystick;
   Joystick mechJoystick;
 
+  JoystickButton* SlideOut;
+  JoystickButton* SlideIn;
   JoystickButton* intakeCargo;
   JoystickButton* outakeCargo;
-  JoystickButton* IntakeDeploy;
-  JoystickButton* IntakeStore;
   JoystickButton* GrabberOpen;
   JoystickButton* GrabberClose;
   JoystickButton* SlamUp;

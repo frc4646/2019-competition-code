@@ -8,10 +8,10 @@
 #include "OI.h"
 
 #include <frc/WPILib.h>
-//#include <commands/IntakeCargo.h>
-//#include <commands/OutakeCargo.h>
-//#include <commands/StoreIntake.h>
-//#include <commands/DeployIntake.h>
+#include <commands/NEWIntakeCargo.h>
+#include <commands/NEWOutakeCargo.h>
+#include <commands/IntakeSlideIn.h>
+#include <commands/IntakeSlideOut.h>
 #include <commands/PopCargo.h>
 #include <commands/ObtainCargo.h>
 #include <commands/DeployClimb.h>
@@ -19,6 +19,7 @@
 #include <commands/PixyDemoTrack.h>
 #include <commands/TestEncoder.h>
 #include <commands/LiftToHeight.h>
+#include <commands/AlignToTarget.h>
 #include <RobotMap.h>
 
 using namespace frc;
@@ -30,10 +31,10 @@ OI::OI() :
   rightJoystick(1),
   mechJoystick(2)
 {
-  //intakeCargo = new JoystickButton(&mechJoystick, 11);
-  //outakeCargo = new JoystickButton(&mechJoystick, 9);
-  //IntakeDeploy = new JoystickButton(&mechJoystick, 10);
-  //IntakeStore = new JoystickButton(&mechJoystick, 12);
+  intakeCargo = new JoystickButton(&mechJoystick, 11);
+  outakeCargo = new JoystickButton(&mechJoystick, 9);
+  SlideIn = new JoystickButton(&mechJoystick, 4);
+  SlideOut = new JoystickButton(&mechJoystick, 6);
   GrabberOpen = new JoystickButton(&mechJoystick, 5);
   GrabberClose = new JoystickButton(&mechJoystick, 3);
   LiftLevel1 = new JoystickButton(&mechJoystick, 12);
@@ -42,12 +43,12 @@ OI::OI() :
   SlamDown = new JoystickButton(&rightJoystick, 7);
   SlamUp = new JoystickButton(&rightJoystick, 6);
   //FollowCargo = new JoystickButton(&rightJoystick, 5);
-  //Test = new JoystickButton(&mechJoystick, 8);
+  //Test = new JoystickButton(&leftJoystick, 6);
 
-  //intakeCargo->WhenPressed(new IntakeCargo());
-  //outakeCargo->WhenPressed(new OutakeCargo());
-  //IntakeDeploy->WhenPressed(new DeployIntake());
-  //IntakeStore->WhenPressed(new StoreIntake());
+  intakeCargo->WhenPressed(new NEWIntakeCargo());
+  outakeCargo->WhenPressed(new NEWOutakeCargo());
+  SlideIn->WhenPressed(new IntakeSlideIn());
+  SlideOut->WhenPressed(new IntakeSlideOut());
   GrabberOpen->WhenPressed(new PopCargo());
   GrabberClose->WhenPressed(new ObtainCargo());
   LiftLevel1->WhenPressed(new LiftToHeight(liftLevel1));
@@ -56,7 +57,7 @@ OI::OI() :
   SlamUp->WhenPressed(new StoreClimb());
   SlamDown->WhenPressed(new DeployClimb());
   //FollowCargo->WhenPressed(new PixyDemoTrack());
-  //Test->WhenPressed(new TestEncoder());
+  //Test->WhenPressed(new AlignToTarget());
 }
 
 double OI::GetLeftJoystickY()
