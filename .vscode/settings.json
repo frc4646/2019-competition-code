@@ -61,5 +61,6 @@
     "bitset": "cpp",
     "iostream": "cpp",
     "numeric": "cpp"
-  }
+  },
+  "C_Cpp.intelliSenseEngineFallback": "Disabled"
 }

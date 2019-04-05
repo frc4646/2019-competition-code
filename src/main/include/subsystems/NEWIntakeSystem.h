@@ -13,19 +13,23 @@
 
 using namespace frc;
 
-class ClimberSystem : public Subsystem {
+class NEWIntakeSystem : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
-  DoubleSolenoid * slamWheel;
-
+  Spark * intakeMotor;
+  Spark * sliderMotor;
+  double intakeVelocity = 0.5;
+  double outakeVelocity = -0.5;
+  double slideInVelocity = -0.5;
+  double slideOutVelocity = 0.5;
  public:
-  ClimberSystem(SolenoidPin climberForward, SolenoidPin climberReverse);
+  NEWIntakeSystem(MotorPin intakeMotorPin, MotorPin intakeSlidePin);
   void InitDefaultCommand() override;
-  
-  void SlamWheelUp();
-  void SlamWheelDown();
-
-  bool IsSlamWheelUp();
-  bool IsSlamWheelDown();
+  void RunIntake();
+  void RunOutake();
+  void StopIntake();
+  void SlideIn();
+  void SlideOut();
+  void StopSlide();
 };

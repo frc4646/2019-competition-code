@@ -5,33 +5,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/IntakeCargo.h"
+#include "commands/NEWOutakeCargo.h"
 
-IntakeCargo::IntakeCargo() : CommandBase("IntakeCargo") {
+NEWOutakeCargo::NEWOutakeCargo() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
- //Requires((frc::Subsystem*) intake.get());
+  Requires((frc::Subsystem*) intake.get()); 
 }
 
 // Called just before this Command runs the first time
-void IntakeCargo::Initialize() {
-}
+void NEWOutakeCargo::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeCargo::Execute() {
-  //intake->SetIntakeSpeed(0.5, 0.5);
+void NEWOutakeCargo::Execute() {
+  intake->RunOutake();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool IntakeCargo::IsFinished() { return true; }
+bool NEWOutakeCargo::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void IntakeCargo::End() {
-  //intake->SetIntakeSpeed(0, 0);
+void NEWOutakeCargo::End() {
+  intake->StopIntake();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void IntakeCargo::Interrupted() {
-  //End();
+void NEWOutakeCargo::Interrupted() {
+  End();
 }

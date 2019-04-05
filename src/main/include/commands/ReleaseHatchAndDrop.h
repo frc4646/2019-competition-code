@@ -7,25 +7,11 @@
 
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
-#include <PinEnums.h>
+#include <frc/commands/CommandGroup.h>
 
 using namespace frc;
 
-class ClimberSystem : public Subsystem {
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-  DoubleSolenoid * slamWheel;
-
+class ReleaseHatchAndDrop : public CommandGroup {
  public:
-  ClimberSystem(SolenoidPin climberForward, SolenoidPin climberReverse);
-  void InitDefaultCommand() override;
-  
-  void SlamWheelUp();
-  void SlamWheelDown();
-
-  bool IsSlamWheelUp();
-  bool IsSlamWheelDown();
+  ReleaseHatchAndDrop();
 };

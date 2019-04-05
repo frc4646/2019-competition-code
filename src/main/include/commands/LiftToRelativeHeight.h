@@ -5,22 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef LiftToHeight_H
-#define LiftToHeight_H
+#pragma once
 
 #include <CommandBase.h>
 
-class LiftToHeight : public CommandBase {
-  private:
+class LiftToRelativeHeight : public CommandBase {
+ private:
   double dist;
   bool isLiftHigher;
-  double tolerance = 0.5;
+  double tolerance = 0.2;
   public:
-  LiftToHeight(double distance);
+  LiftToRelativeHeight(double relativeDistance);
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
 };
-#endif

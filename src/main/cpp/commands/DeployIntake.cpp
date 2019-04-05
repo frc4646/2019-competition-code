@@ -11,7 +11,7 @@ DeployIntake::DeployIntake() : CommandBase("DeployIntake") {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   // Requires Intake subsystem 
-  Requires((frc::Subsystem*) intake.get());
+  //Requires((frc::Subsystem*) intake.get());
 }
 
 // Called just before this Command runs the first time
@@ -22,17 +22,18 @@ void DeployIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void DeployIntake::Execute() {
   // Put intake outside of chassis when cargo is wanted
-  intake->CylinderPositionDown();
+  //intake->CylinderPositionDown();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DeployIntake::IsFinished() { 
-  return intake->IsIntakeDeployed(); 
+  //return intake->IsIntakeDeployed(); 
+  return true;
 }
 
 // Called once after isFinished returns true
 void DeployIntake::End() {
-  intake->CylinderPositionOff();
+  //intake->CylinderPositionOff();
 }
 
 // Called when another command which requires one or more of the same

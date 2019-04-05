@@ -5,6 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+/*
+plugged in   
+ 	at frc::Command::Requires(frc::Subsystem*) 
+ 	at IntakeCargo::IntakeCargo() 
+ 	at OI::OI() 
+ 	at /home/lvuser/frcUserProgram() [0x2e720]  
+  
+*/
 #include "subsystems/IntakeSystem.h"
 
 using namespace frc;
@@ -12,10 +21,10 @@ using namespace frc;
 IntakeSystem::IntakeSystem(MotorPin intakeMotorPin, SolenoidPin rightIntakeForward, 
     SolenoidPin rightIntakeReverse, SolenoidPin leftIntakeForward, SolenoidPin leftIntakeReverse) : Subsystem("IntakeSystem") {
   leftIntake = new Spark(intakeMotorPin);
-  rightIntake = new Spark(intakeMotorPin);
+  //rightIntake = new Spark(intakeMotorPin);
 
-  leftIntakeCylinder = new DoubleSolenoid(leftIntakeForward, leftIntakeReverse);
-  rightIntakeCylinder = new DoubleSolenoid(rightIntakeForward, rightIntakeReverse);
+ // leftIntakeCylinder = new DoubleSolenoid(leftIntakeForward, leftIntakeReverse);
+  //rightIntakeCylinder = new DoubleSolenoid(rightIntakeForward, rightIntakeReverse);
 
   rightIntake->SetInverted(true);
 } //Example port numbers

@@ -5,18 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef LiftToHeight_H
-#define LiftToHeight_H
+#ifndef NEWIntakeCargo_h
+#define NEWIntakeCargo_h
 
 #include <CommandBase.h>
 
-class LiftToHeight : public CommandBase {
-  private:
-  double dist;
-  bool isLiftHigher;
-  double tolerance = 0.5;
-  public:
-  LiftToHeight(double distance);
+class NEWIntakeCargo : public CommandBase {
+ public:
+  NEWIntakeCargo();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

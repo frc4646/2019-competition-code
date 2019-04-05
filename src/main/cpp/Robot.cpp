@@ -20,6 +20,8 @@ void Robot::RobotInit() {
   m_chooser.AddOption("My Auto", &m_myAuto);*/
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
   CameraServer::GetInstance()->StartAutomaticCapture();
+  Compressor *c = new Compressor(0);
+  c->Start();
 }
 
 /**

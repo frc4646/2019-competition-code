@@ -5,33 +5,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/IntakeCargo.h"
+#include "commands/IntakeSlideOut.h"
 
-IntakeCargo::IntakeCargo() : CommandBase("IntakeCargo") {
+IntakeSlideOut::IntakeSlideOut() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
- //Requires((frc::Subsystem*) intake.get());
+  Requires((frc::Subsystem*) intake.get()); 
 }
 
 // Called just before this Command runs the first time
-void IntakeCargo::Initialize() {
-}
+void IntakeSlideOut::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeCargo::Execute() {
-  //intake->SetIntakeSpeed(0.5, 0.5);
+void IntakeSlideOut::Execute() {
+  intake->SlideOut();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool IntakeCargo::IsFinished() { return true; }
+bool IntakeSlideOut::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void IntakeCargo::End() {
-  //intake->SetIntakeSpeed(0, 0);
+void IntakeSlideOut::End() {
+  intake->StopIntake();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void IntakeCargo::Interrupted() {
-  //End();
+void IntakeSlideOut::Interrupted() {
+  End();
 }

@@ -43,5 +43,12 @@ double LiftSystem::GetMinHeight(){
   return MinHeight;
 }
 
+
+bool LiftSystem::GetLiftToHeight(){
+  return lifttoheight;
+}
+void LiftSystem::SetLiftToHeight(bool value){
+  lifttoheight = value;
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

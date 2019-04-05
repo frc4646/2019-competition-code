@@ -18,23 +18,23 @@ TankDriveSystem::TankDriveSystem() : Subsystem("drivetrain") {
   backLeft = new WPI_TalonSRX(2);
   backRight = new WPI_VictorSPX(3);
   
-  backLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
-  frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
+  //backLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
+  //frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
 
   frontRight->SetInverted(true);
   backRight->SetInverted(true);
   
-  backLeft->Set(ControlMode::Position, 0);
-  frontRight->Set(ControlMode::Position, 0);
+  //backLeft->Set(ControlMode::Position, 0);
+  //frontRight->Set(ControlMode::Position, 0);
 
   //configure the PID
-  backLeft->Config_kP(0, 10, 0);
-  frontRight->Config_kF(0, 5, 0);
+  //backLeft->Config_kP(0, 10, 0);
+  //frontRight->Config_kF(0, 5, 0);
 
   //it will take rampRate seconds to go from neutral to set power,
   //making drivetrain move smoother
-  backLeft->ConfigOpenloopRamp(rampRate, 0);
-  frontRight->ConfigOpenloopRamp(rampRate, 0);
+  //backLeft->ConfigOpenloopRamp(rampRate, 0);
+  //frontRight->ConfigOpenloopRamp(rampRate, 0);
 
 
 }
@@ -50,8 +50,8 @@ void TankDriveSystem::SetDriveSpeed(double leftSpeed, double rightSpeed){
   backLeft->Set(leftSpeed);
   backRight->Set(rightSpeed);
 
-  backLeft->Set(ControlMode::Position, 0.0);
-  frontRight->Set(ControlMode::Position, 0.0);
+  //backLeft->Set(ControlMode::Position, 0.0);
+  //frontRight->Set(ControlMode::Position, 0.0);
 
 }
 void TankDriveSystem::TestEncoders(double num) {
@@ -60,10 +60,11 @@ void TankDriveSystem::TestEncoders(double num) {
 }
 
 void TankDriveSystem::Periodic() {
-  frc::SmartDashboard::PutNumber("velocity_left", backLeft->GetSelectedSensorVelocity(0));
+  /*frc::SmartDashboard::PutNumber("velocity_left", backLeft->GetSelectedSensorVelocity(0));
   frc::SmartDashboard::PutNumber("velocity_right", frontRight->GetSelectedSensorVelocity(0));
   frc::SmartDashboard::PutNumber("error_L", backLeft->GetClosedLoopError(0));
   frc::SmartDashboard::PutNumber("error_R", frontRight->GetClosedLoopError(0));
+  */
 }
 
 // Put methods for controlling this subsystem

@@ -22,7 +22,7 @@ class GrabberSystem : public Subsystem {
   DoubleSolenoid * popper;
 
  public:
-  GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin2 popperForward, SolenoidPin2 popperReverse);
+  GrabberSystem(SolenoidPin grabberForward, SolenoidPin grabberReverse, SolenoidPin popperForward, SolenoidPin popperReverse);
   void InitDefaultCommand() override;
   void OpenGrabber(); //opens grabber to hold hatch
   void CloseGrabber(); //closes grabber to release hatch
