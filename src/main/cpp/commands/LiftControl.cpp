@@ -21,21 +21,28 @@ void LiftControl::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftControl::Execute() {
   frc::SmartDashboard::PutNumber("Lift height in inches", lift->GetHeight());
-  if (oi->GetMechJoystickY() > minValue) //if the joystick value is greater than the positive min
-  {
-    slope = (lift->MaxPower - lift->HoldPower)/(1.0 - minValue);
-    power = slope * (oi->GetMechJoystickY() - 1.0) + lift->MaxPower;
+  
+  if (!lift->GetLiftToHeight()){
+    if (oi->GetMechJoystickY() > minValue) //if the joystick value is greater than the positive min
+    {
+      slope = (lift->MaxPower - lift->HoldPower)/(1.0 - minValue);
+      power = slope * (oi->GetMechJoystickY() - 1.0) + lift->MaxPower;
+    }
+    else if (oi->GetMechJoystickY() < -minValue) //if the joystick value is less than the negative min
+    {
+      slope = (lift->MinPower - lift->HoldPower)/(minValue - 1.0);
+      power = slope * (oi->GetMechJoystickY() + 1.0) + lift->MinPower;
+    }
+    //Add here
+    else
+    {
+      power = lift->HoldPower;
+      printf("Lift Control is holding!");
+    }
+    lift->LiftAtSpeed(power);
   }
-  else if (oi->GetMechJoystickY() < -minValue) //if the joystick value is less than the negative min
-  {
-    slope = (lift->MinPower - lift->HoldPower)/(minValue - 1.0);
-    power = slope * (oi->GetMechJoystickY() + 1.0) + lift->MinPower;
-  }
-  else
-  {
-    power = lift->HoldPower;
-  }
-  lift->LiftAtSpeed(power);
+  
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

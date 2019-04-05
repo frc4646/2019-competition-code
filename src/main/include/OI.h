@@ -48,6 +48,7 @@ private:
   JoystickButton* LiftLevel1;
   JoystickButton* LiftLevel2;
   JoystickButton* LiftLevel3;
+  JoystickButton* DropReleaseHatch;
 
   JoystickButton* FollowCargo;
   JoystickButton* Test;

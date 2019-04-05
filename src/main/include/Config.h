@@ -35,10 +35,10 @@ const AnalogPin stringPotPin = A0;
 const MotorPin intakeMotorPin = M4;
 const MotorPin intakeSlidePin = M5; //for both intake motors
 
-const SolenoidPin rightIntakeForward = S0;
-const SolenoidPin rightIntakeReverse = S1;
-const SolenoidPin leftIntakeForward = S2;
-const SolenoidPin leftIntakeReverse = S3;
+//const SolenoidPin rightIntakeForward = S0;
+//const SolenoidPin rightIntakeReverse = S1;
+//const SolenoidPin leftIntakeForward = S2;
+//const SolenoidPin leftIntakeReverse = S3;
 
 #define GRABBER_INIT_PARAMS grabberForward, grabberReverse, popperForward, popperReverse
 const SolenoidPin grabberForward = S4;

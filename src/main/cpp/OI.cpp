@@ -20,7 +20,9 @@
 #include <commands/TestEncoder.h>
 #include <commands/LiftToHeight.h>
 #include <commands/AlignToTarget.h>
+#include <commands/ReleaseHatchAndDrop.h>
 #include <RobotMap.h>
+
 
 using namespace frc;
 using namespace wpi;
@@ -31,10 +33,11 @@ OI::OI() :
   rightJoystick(1),
   mechJoystick(2)
 {
-  intakeCargo = new JoystickButton(&mechJoystick, 11);
-  outakeCargo = new JoystickButton(&mechJoystick, 9);
-  SlideIn = new JoystickButton(&mechJoystick, 4);
-  SlideOut = new JoystickButton(&mechJoystick, 6);
+  //intakeCargo = new JoystickButton(&mechJoystick, 11);
+  //outakeCargo = new JoystickButton(&mechJoystick, 9);
+  //SlideIn = new JoystickButton(&mechJoystick, 4);
+  //SlideOut = new JoystickButton(&mechJoystick, 6);
+  //DropReleaseHatch = new JoystickButton(&mechJoystick, 4);
   GrabberOpen = new JoystickButton(&mechJoystick, 5);
   GrabberClose = new JoystickButton(&mechJoystick, 3);
   LiftLevel1 = new JoystickButton(&mechJoystick, 12);
@@ -45,10 +48,11 @@ OI::OI() :
   //FollowCargo = new JoystickButton(&rightJoystick, 5);
   //Test = new JoystickButton(&leftJoystick, 6);
 
-  intakeCargo->WhenPressed(new NEWIntakeCargo());
-  outakeCargo->WhenPressed(new NEWOutakeCargo());
-  SlideIn->WhenPressed(new IntakeSlideIn());
-  SlideOut->WhenPressed(new IntakeSlideOut());
+  //intakeCargo->WhenPressed(new NEWIntakeCargo());
+  //outakeCargo->WhenPressed(new NEWOutakeCargo());
+  //SlideIn->WhenPressed(new IntakeSlideIn());
+  //SlideOut->WhenPressed(new IntakeSlideOut());
+  //DropReleaseHatch->WhenPressed(new ReleaseHatchAndDrop());
   GrabberOpen->WhenPressed(new PopCargo());
   GrabberClose->WhenPressed(new ObtainCargo());
   LiftLevel1->WhenPressed(new LiftToHeight(liftLevel1));
