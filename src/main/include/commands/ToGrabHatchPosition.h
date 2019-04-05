@@ -5,12 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#ifndef ToGrabHatchPosition_H
+#define ToGrabHatchPosition_H
 
-#include <frc/commands/CommandGroup.h>
 #include <CommandBase.h>
+#include <frc/commands/CommandGroup.h>
 
 class ToGrabHatchPosition : public frc::CommandGroup {
  public:
   ToGrabHatchPosition();
 };
+#endif

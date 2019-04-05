@@ -23,8 +23,8 @@ class IntakeSystem : public Subsystem {
   DoubleSolenoid * rightIntakeCylinder;
 
  public:
-  IntakeSystem(MotorPin intakeMotorPin, SolenoidPin rightIntakeForward, 
-    SolenoidPin rightIntakeReverse, SolenoidPin leftIntakeForward, SolenoidPin leftIntakeReverse);
+  IntakeSystem(MotorPin intakeMotorPin, SolenoidPin2 rightIntakeForward, 
+    SolenoidPin2 rightIntakeReverse, SolenoidPin2 leftIntakeForward, SolenoidPin2 leftIntakeReverse);
   void InitDefaultCommand() override;
   void SetIntakeSpeed(double leftSpeed, double rightSpeed);
   void CylinderPositionUp();

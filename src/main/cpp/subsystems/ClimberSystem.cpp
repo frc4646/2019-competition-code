@@ -7,7 +7,7 @@
 
 #include "subsystems/ClimberSystem.h"
 
-ClimberSystem::ClimberSystem(SolenoidPin2 climberForward, SolenoidPin2 climberReverse) : Subsystem("ClimberSystem") {
+ClimberSystem::ClimberSystem(SolenoidPin climberForward, SolenoidPin climberReverse) : Subsystem("ClimberSystem") {
   slamWheel = new DoubleSolenoid(climberForward, climberReverse);
 }
 

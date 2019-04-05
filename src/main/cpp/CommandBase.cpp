@@ -44,7 +44,7 @@ std::unique_ptr<GrabberSystem> CommandBase::grab = NULL;
 std::unique_ptr<IntakeSystem> CommandBase::intake = NULL;
 std::unique_ptr<PerceptionSystem> CommandBase::percept = NULL;
 std::unique_ptr<ClimberSystem> CommandBase::slam = NULL;
-std::unique_ptr<PixyCamera> CommandBase::pixy = NULL;
+//std::unique_ptr<PixyCamera> CommandBase::pixy = NULL;
 std::unique_ptr<UltraSonic> CommandBase::ultrasonic = NULL;
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
@@ -60,6 +60,6 @@ void CommandBase::init() {
   intake.reset(new IntakeSystem(INTAKE_INIT_PARAMS));
   percept.reset(new PerceptionSystem());
   slam.reset(new ClimberSystem(CLIMBER_INIT_PARAMS));
-  pixy.reset(new PixyCamera());
+  //pixy.reset(new PixyCamera());
   ultrasonic.reset(new UltraSonic(ULTRASONIC_INIT_PARAMS));
 }

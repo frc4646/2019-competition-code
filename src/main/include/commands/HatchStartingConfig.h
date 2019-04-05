@@ -5,14 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#ifndef ToGrabCargoPosition_H
-#define ToGrabCargoPosition_H
+#ifndef HatchStartingConfig_H
+#define HatchStartingConfig_H
 
 #include <CommandBase.h>
 #include <frc/commands/CommandGroup.h>
 
-class ToGrabCargoPosition : public frc::CommandGroup {
+class HatchStartingConfig : public frc::CommandGroup {
  public:
-  ToGrabCargoPosition();
+  HatchStartingConfig();
 };
 #endif

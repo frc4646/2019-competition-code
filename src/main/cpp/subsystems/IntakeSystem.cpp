@@ -9,8 +9,8 @@
 
 using namespace frc;
 
-IntakeSystem::IntakeSystem(MotorPin intakeMotorPin, SolenoidPin rightIntakeForward, 
-    SolenoidPin rightIntakeReverse, SolenoidPin leftIntakeForward, SolenoidPin leftIntakeReverse) : Subsystem("IntakeSystem") {
+IntakeSystem::IntakeSystem(MotorPin intakeMotorPin, SolenoidPin2 rightIntakeForward, 
+    SolenoidPin2 rightIntakeReverse, SolenoidPin2 leftIntakeForward, SolenoidPin2 leftIntakeReverse) : Subsystem("IntakeSystem") {
   leftIntake = new Spark(intakeMotorPin);
   rightIntake = new Spark(intakeMotorPin);
 

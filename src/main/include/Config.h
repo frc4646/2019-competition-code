@@ -34,21 +34,21 @@ const AnalogPin stringPotPin = A0;
 #define INTAKE_INIT_PARAMS intakeMotorPin, rightIntakeForward, rightIntakeReverse, leftIntakeForward, leftIntakeReverse
 const MotorPin intakeMotorPin = M4; //for both intake motors
 
-const SolenoidPin rightIntakeForward = S0;
-const SolenoidPin rightIntakeReverse = S1;
-const SolenoidPin leftIntakeForward = S2;
-const SolenoidPin leftIntakeReverse = S3;
+const SolenoidPin2 rightIntakeForward = P0;
+const SolenoidPin2 rightIntakeReverse = P1;
+const SolenoidPin2 leftIntakeForward = P2;
+const SolenoidPin2 leftIntakeReverse = P3;
 
 #define GRABBER_INIT_PARAMS grabberForward, grabberReverse, popperForward, popperReverse
 const SolenoidPin grabberForward = S4;
 const SolenoidPin grabberReverse = S5;
 
-const SolenoidPin2 popperForward = P0;
-const SolenoidPin2 popperReverse = P1;
+const SolenoidPin popperForward = S0;
+const SolenoidPin popperReverse = S1;
 
 #define CLIMBER_INIT_PARAMS climberForward, climberReverse
-const SolenoidPin2 climberForward = P2;
-const SolenoidPin2 climberReverse = P3;
+const SolenoidPin climberForward = S2;
+const SolenoidPin climberReverse = S3;
 
 #define ULTRASONIC_INIT_PARAMS ultrasonicPin
 

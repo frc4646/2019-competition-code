@@ -27,6 +27,8 @@ public:
   bool GetMechJoystickButton11(); //intake cargo
   bool GetMechJoystickButton12(); //store intake
   //bool GetMechJoystickButton6(); //open grabber AND popper
+  //bool GetMechJoystickButton4();
+  //bool GetMechJoystickButton6();
 
   bool GetRightJoystickButton6(); //slam wheel up
   bool GetRightJoystickButton7(); //slam wheel down
@@ -45,6 +47,8 @@ private:
   JoystickButton* GrabberClose;
   JoystickButton* SlamUp;
   JoystickButton* SlamDown;
+  JoystickButton* grabCargoPosition;
+  JoystickButton* grabHatchPosition;
 
   JoystickButton* FollowCargo;
   JoystickButton* Test;

@@ -10,16 +10,21 @@
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/WPILib.h>
+#include <iostream>
 
 //ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
 
 void Robot::RobotInit() {
+  printf("starting robot \n");
+
   CommandBase::init();
   /*m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);*/
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
   CameraServer::GetInstance()->StartAutomaticCapture();
+  Compressor *c = new Compressor(0);
+  c->Start();
 }
 
 /**
